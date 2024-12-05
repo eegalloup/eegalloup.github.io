@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Rate, Chip Load & Feed per Revolution Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="calculatorstyles.css"> <!-- External CSS -->
+</head>
+    <header class="site-header">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="images/galloupschool.png" alt="Logo" class="logo">
+        </a>
+    </div>
+    <nav class="directory">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Journal.html">Journal</a></li>
+            <li><a href="index.html#calculator-section">Calculators</a></li>
+            <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+
+<h1>Feed Rate, Chip Load & Feed per Revolution Calculator</h1>
+
+<div class="calculator-container">
+    <!-- Feed Rate Calculator -->
+    <div class="calculator">
+        <h2>Calculate CNC Feed Rate</h2>
+        <div class="form-group">
+            <label for="rpm">Spindle Speed (RPM)</label>
+            <input type="text" id="rpm" placeholder="Enter Spindle Speed">
+        </div>
+        <div class="form-group">
+            <label for="flutes">Number of Flutes (Z)</label>
+            <input type="text" id="flutes" placeholder="Enter Number of Flutes">
+        </div>
+        <div class="form-group">
+            <label for="chipload">Chip Load (CL) [inches/tooth]</label>
+            <input type="text" id="chipload" placeholder="Enter Chip Load">
+        </div>
+        <div class="form-group">
+            <button onclick="calculateFeedRate()">Calculate Feed Rate</button>
+        </div>
+        <div class="result" id="result-feedrate"></div>
+    </div>
+
+    <!-- Chip Load Calculator -->
+    <div class="calculator">
+        <h2>Calculate Chip Load</h2>
+        <div class="form-group">
+            <label for="feedrate">Feed Rate (FR) [inches/min]</label>
+            <input type="text" id="feedrate" placeholder="Enter Feed Rate">
+        </div>
+        <div class="form-group">
+            <label for="rpm-chip">Spindle Speed (RPM)</label>
+            <input type="text" id="rpm-chip" placeholder="Enter Spindle Speed">
+        </div>
+        <div class="form-group">
+            <label for="flutes-chip">Number of Flutes (Z)</label>
+            <input type="text" id="flutes-chip" placeholder="Enter Number of Flutes">
+        </div>
+        <div class="form-group">
+            <button onclick="calculateChipLoad()">Calculate Chip Load</button>
+        </div>
+        <div class="result" id="result-chipload"></div>
+    </div>
+
+    <!-- Feed per Revolution Calculator -->
+    <div class="calculator">
+        <h2>Calculate Feed per Revolution</h2>
+        <div class="form-group">
+            <label for="feedrate-fpr">Feed Rate (FR) [inches/min]</label>
+            <input type="text" id="feedrate-fpr" placeholder="Enter Feed Rate">
+        </div>
+        <div class="form-group">
+            <label for="rpm-fpr">Spindle Speed (RPM)</label>
+            <input type="text" id="rpm-fpr" placeholder="Enter Spindle Speed">
+        </div>
+        <div class="form-group">
+            <button onclick="calculateFeedPerRevolution()">Calculate Feed per Revolution</button>
+        </div>
+        <div class="result" id="result-fpr"></div>
+    </div>
+</div>
+
+<div class="spacer">
+</div>
+
+<div class="row">
+    <div class="column">
+        <h2>What is <strong>Feed Rate?</strong></h2>
+        <p>Feed Rate is the linear distance the cutting tool or workpiece travels per unit of time, usually measured in inches per minute (IPM) or millimeters per minute (mm/min).</p>
+        <p>The linear distance the cutting tool or workpiece travels per unit of time, usually measured in inches per minute (IPM) or millimeters per minute (mm/min).</p>
+        <h2><strong>Formula</strong></h2>
+        <img src="images/FeedRateFormula.png" alt="formula-img" class="formula-img">
+    </div>
+    <div class="column">
+        <h2>What is <strong>Chip Load?</strong></h2>
+        <p>Chip Load is the amount of material removed by each cutting edge of the tool during one revolution of the spindle, typically measured in inches per tooth (IPT) or millimeters per tooth.</p>
+        <p>Chip load affects tool life, surface finish, and cutting efficiency. Setting the right chip load ensures that the cutting tool is neither underloaded nor overloaded.</p>
+        <h2><strong>Formula</strong></h2>
+        <img src="images/ChipLoadFormula.png" alt="formula-img" class="formula-img">
+    </div>
+    <div class="column">
+        <h2>What is <strong>Feed per Revolution?</strong></h2>
+        <p>Feed per Revolution distance the cutting tool or workpiece advances for each revolution of the spindle, measured in inches per revolution (IPR) or millimeters per revolution.</p>
+        <p>Feed per revolution is crucial for operations like drilling, where the tool cuts material in a circular motion with each revolution.</p>
+        <h2><strong>Formula</strong></h2>
+        <img src="images/IPRFormula.png" alt="formula-img" class="formula-img">
+    </div>
+</div>
+
+<div class="spacer-large">
+</div>
+
+<footer>
+    <p class="acknowledgment">Developed by Galloup School</p>
+    <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
+
+<script src="FCFscript.js"></script>
+
+</body>
+</html>
+

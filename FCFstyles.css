@@ -1,0 +1,163 @@
+/* General Reset */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    src: url(fonts/Montserrat/)
+    padding: 0;
+    text-align: center;
+}
+
+/* Site Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #a12d27;
+}
+
+.logo {
+    max-width: 180px; 
+    height: auto; 
+}
+
+.directory ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.directory a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.directory a:hover {
+    color: #a12d27;
+}
+
+/* Header Container */
+.header-container {
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 450;
+    margin-top: 40px; /* Adjust value to move the title further down */
+    margin-bottom: 40px
+}
+ 
+h2 {
+    margin-top: 7px; /* Adjust value to move the title further down */
+    margin-bottom: 20px
+}
+
+/* Calculator Section */
+.calculator-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.calculator {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+/* Form Group and Inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 12px;
+    background-color: #A12D27;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.form-group button:hover {
+    background-color: #911D1A;
+}
+
+/* Result Styling */
+.result {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-container {
+        flex-direction: column;
+    }
+
+    .calculator {
+        max-width: 100%;
+    }
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #bdc3c7;
+}
+
+.acknowledgment {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin-bottom: 30px;
+}

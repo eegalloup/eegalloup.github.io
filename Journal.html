@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luthier's Workshop Journal</title>
+    <link rel="stylesheet" href="journalstyles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/galloupschool.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <nav class="directory">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            <li><a href="Journal.html">Journal</a></li>
+            <li><a href="index.html#calculator-section">Calculators</a></li>
+            <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+            <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header> 
+    <div class="intro-block">
+        <h2>Welcome to Your Journal</h2>
+        <p>This is your personalized space to document your journey. Use the tools provided to log your progress, calculations, and insights into your work.</p>
+    </div> 
+    <div class="container">
+        <header>
+            <h1>Luthier's Workshop Journal</h1>
+            <p>Track your guitar builds from start to finish.</p>
+        </header>
+        <section class="project-overview">
+            <h2>Project Overview</h2>
+            <label for="project-name">Project Name:</label>
+            <input type="text" id="project-name" placeholder="Enter project name">
+
+            <label for="instrument-type">Instrument Type:</label>
+            <input type="text" id="instrument-type" placeholder="e.g., Acoustic Guitar">
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date">
+
+            <label for="description">Project Description:</label>
+            <textarea id="description" placeholder="Describe your project..."></textarea>
+        </section>
+
+        <section class="tonewood-selection">
+            <h2>Tonewood Selection</h2>
+            <label for="body-wood">Body Wood:</label>
+            <input type="text" id="body-wood" placeholder="e.g., Mahogany">
+
+            <label for="neck-wood">Neck Wood:</label>
+            <input type="text" id="neck-wood" placeholder="e.g., Maple">
+
+            <label for="fretboard-wood">Fretboard Wood:</label>
+            <input type="text" id="fretboard-wood" placeholder="e.g., Rosewood">
+
+            <label for="wood-notes">Additional Notes:</label>
+            <textarea id="wood-notes" placeholder="Any extra notes on materials..."></textarea>
+            <section class="tonewood-calculators">
+                <h2>Tonewood Calculators</h2>
+            
+                <!-- Density Calculator -->
+                <div class="calculator" id="density-calculator">
+                    <h3>Density Calculator</h3>
+                    <label for="mass">Mass (g):</label>
+                    <input type="number" id="mass" placeholder="Enter mass in grams">
+            
+                    <label for="volume">Volume (cm³):</label>
+                    <input type="number" id="volume" placeholder="Enter volume in cm³">
+            
+                    <button onclick="calculateDensity()">Calculate Density</button>
+                    <p id="density-result"></p>
+                </div>
+
+                  <!-- Modulus of Elasticity Calculator -->
+                  <div class="calculator" id="youngs-modulus-calculator">
+                    <h3>Young's Modulus Calculator</h3>
+                    <div class="form-group">
+                        <label for="weight">Weight:</label>
+                        <input type="number" id="weight" placeholder="Enter weight">
+                        <select id="weightUnit">
+                            <option value="kg">kg</option>
+                            <option value="lb">lb</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="length">Length:</label>
+                        <input type="number" id="length" placeholder="Enter length">
+                        <select id="lengthUnit">
+                            <option value="m">m</option>
+                            <option value="in">in</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="width">Width:</label>
+                        <input type="number" id="width" placeholder="Enter width">
+                        <select id="widthUnit">
+                            <option value="m">m</option>
+                            <option value="in">in</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="thickness">Thickness:</label>
+                        <input type="number" id="thickness" placeholder="Enter thickness">
+                        <select id="thicknessUnit">
+                            <option value="m">m</option>
+                            <option value="in">in</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="deflection">Deflection:</label>
+                        <input type="number" id="deflection" placeholder="Enter deflection">
+                        <select id="deflectionUnit">
+                            <option value="m">m</option>
+                            <option value="in">in</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button onclick="calculateYoungsModulus()">Calculate Young's Modulus</button>
+                    </div>
+                    <div class="result" id="output"></div>
+                </div>
+
+            
+                <!-- Stiffness Calculator -->
+                <div class="calculator" id="stiffness-calculator">
+                    <h3>Stiffness Calculator</h3>
+                    <label for="modulus">Modulus of Elasticity (GPa):</label>
+                    <input type="number" id="modulus" placeholder="e.g., 10.5">
+            
+                    <label for="length">Length (cm):</label>
+                    <input type="number" id="length" placeholder="Enter length in cm">
+            
+                    <label for="width">Width (cm):</label>
+                    <input type="number" id="width" placeholder="Enter width in cm">
+            
+                    <label for="thickness">Thickness (cm):</label>
+                    <input type="number" id="thickness" placeholder="Enter thickness in cm">
+            
+                    <button onclick="calculateStiffness()">Calculate Stiffness</button>
+                    <p id="stiffness-result"></p>
+                </div>
+
+                <!-- Resonance Frequency Calculator -->
+                <div class="calculator" id="resonance-calculator">
+                    <h3>Resonance Frequency Calculator</h3>
+                    <label for="speed-sound">Speed of Sound in Wood (m/s):</label>
+                    <input type="number" id="speed-sound" placeholder="e.g., 3500">
+            
+                    <label for="length-res">Length (cm):</label>
+                    <input type="number" id="length-res" placeholder="Enter length in cm">
+            
+                    <button onclick="calculateResonanceFrequency()">Calculate Resonance Frequency</button>
+                    <p id="resonance-result"></p>
+                </div>
+            </section>
+            
+        </section>
+        <section class="build-stages">
+            <h2>Build Stages</h2>
+            <label for="stage">Current Stage:</label>
+            <input type="text" id="stage" placeholder="e.g., Neck Shaping">
+        
+            <label for="stage-notes">Stage Notes:</label>
+            <textarea id="stage-notes" placeholder="Describe your work at this stage..."></textarea>
+        
+            <label for="stage-photo">Upload Photo:</label>
+            <input type="file" id="stage-photo" accept="image/*">
+        
+            <button onclick="saveStage()">Save Stage</button>
+        </section>
+        <section class="setup-tuning">
+            <h2>Setup and Tuning Logs</h2>
+            
+            <label for="action-height">Action Height (in mm):</label>
+            <input type="number" id="action-height" placeholder="e.g., 1.5">
+        
+            <label for="neck-relief">Neck Relief (in mm):</label>
+            <input type="number" id="neck-relief" placeholder="e.g., 0.2">
+        
+            <label for="string-gauge">String Gauge:</label>
+            <input type="text" id="string-gauge" placeholder="e.g., .010-.046">
+        
+            <label for="tuning-notes">Tuning Setup:</label>
+            <textarea id="tuning-notes" placeholder="Describe the tuning and any adjustments..."></textarea>
+        
+            <button onclick="saveSetup()">Save Setup</button>
+        </section> 
+        <section class="setups-display">
+            <h2>Saved Setups</h2>
+            <!-- Saved setups will be displayed here by JavaScript -->
+        </section>
+        <section class="finishing-details">
+            <h2>Finishing Details</h2>
+            
+            <label for="finish-technique">Finishing Technique:</label>
+            <input type="text" id="finish-technique" placeholder="e.g., Oil Finish, Lacquer, etc.">
+        
+            <label for="finish-color">Finish Color:</label>
+            <input type="text" id="finish-color" placeholder="e.g., Natural, Sunburst">
+        
+            <label for="finish-notes">Additional Notes on Finishing:</label>
+            <textarea id="finish-notes" placeholder="Describe any extra finishing details..."></textarea>
+        
+            <button onclick="saveFinishingDetails()">Save Finishing Details</button>
+        </section>
+        <section class="finishing-display">
+            <h2>Saved Finishing Details</h2>
+            <!-- Saved finishing details will be displayed here by JavaScript -->
+        </section>   
+        <section class="project-summary">
+            <h2>Project Summary</h2>
+            
+            <label for="summary-notes">Reflection Notes:</label>
+            <textarea id="summary-notes" placeholder="Reflect on the build, challenges, successes, etc."></textarea>
+        
+            <button id="save-as-pdf">Save Summary as PDF</button>
+        </section>
+        <section class="summary-display">
+            <h2>Saved Project Summary</h2>
+            <!-- Saved summary will be displayed here by JavaScript -->
+        </section>                            
+    </div>
+    <script src="journalscript.js"></script>
+</body>
+</html>

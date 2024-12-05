@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young's Modulus Calculator</title>
+    <link rel="stylesheet" href="calculatorstyles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/galloupschool.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        
+        <nav class="directory">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Journal.html">Journal</a></li>
+                <li><a href="index.html#calculator-section">Calculators</a></li>
+                <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Young's Modulus & Speed of Sound Calculator</h1>
+
+    <!-- Calculator Container -->
+    <div class="calculator-container">
+        <!-- Young's Modulus Calculator -->
+        <div class="calculator" id="youngs-modulus-calculator">
+            <h2>Young's Modulus Calculator</h2>
+            <form id="calculator">
+                <!-- Weight Input -->
+                <label for="weight">Weight (force):</label>
+                <input type="number" id="weight" placeholder="Enter weight (e.g., 5)">
+                <select id="weightUnit">
+                    <option value="kg">Kilograms (kg)</option>
+                    <option value="lb">Pounds (lb)</option>
+                </select>
+
+                <!-- Length Input -->
+                <label for="length">Span Length (L):</label>
+                <input type="number" id="length" placeholder="Enter length (e.g., 20)">
+                <select id="lengthUnit">
+                    <option value="m">Meters (m)</option>
+                    <option value="in">Inches (in)</option>
+                </select>
+
+                <!-- Width Input -->
+                <label for="width">Width (w):</label>
+                <input type="number" id="width" placeholder="Enter width (e.g., 6)">
+                <select id="widthUnit">
+                    <option value="m">Meters (m)</option>
+                    <option value="in">Inches (in)</option>
+                </select>
+
+                <!-- Thickness Input -->
+                <label for="thickness">Thickness (t):</label>
+                <input type="number" id="thickness" placeholder="Enter thickness (e.g., 0.25)">
+                <select id="thicknessUnit">
+                    <option value="m">Meters (m)</option>
+                    <option value="in">Inches (in)</option>
+                </select>
+
+                <!-- Deflection Input -->
+                <label for="deflection">Deflection (δ):</label>
+                <input type="number" id="deflection" placeholder="Enter deflection (e.g., 0.002)">
+                <select id="deflectionUnit">
+                    <option value="m">Meters (m)</option>
+                    <option value="in">Inches (in)</option>
+                </select>
+
+                <!-- Calculate Button -->
+                <button type="button" onclick="calculateYoungsModulus()">Calculate Young's Modulus</button>
+            </form>
+
+            <!-- Output -->
+            <div class="output" id="output"></div>
+        </div>
+
+        <!-- Placeholder for Second Calculator -->
+        <div class="container" id="second-calculator">
+            <h2>Speed of Sound Calculator</h2>
+            <p>Coming soon!</p>
+        </div>
+    </div>
+
+    <div class="youngsmodrow">
+        <div class="youngsmodcolumn">
+            <h2>What is <strong>Young's Modulus?</strong></h2>
+        <p>Young's Modulus is blah blah blah youngs modulus stuff.</p>
+        <h2><strong>Formula</strong></h2>
+        <img src="images/FeedRateFormula.png" alt="formula-img" class="formula-img">
+        </div>
+        <div class="youngsmodcolumn">
+            <h2>What is <strong>Speed of Sound?</strong></h2>
+        <p>Young's Modulus is blah blah blah youngs modulus stuff.</p>
+        <h2><strong>Formula</strong></h2>
+        <img src="images/FeedRateFormula.png" alt="formula-img" class="formula-img">
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="youngsmodscript.js"></script>
+</body>
+<footer>
+    <p class="acknowledgment">Developed by Galloup School</p>
+    <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
