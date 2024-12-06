@@ -232,14 +232,20 @@ button:hover {
 
 .youngsmodrow{
     width: 100%;
-    padding-left: 27%;
+    padding-left: 30%;
+    margin-top: 30px;
 }
 
 .youngsmodcolumn{
     float: left;
-    width: 45%;
+    width: 60%;
     padding-right: 4%;
 }
+
+.youngsmodcolumn p{
+    margin-bottom: 20px;
+}
+
 
 .column p{
     margin-bottom: 20px;
@@ -267,7 +273,7 @@ footer {
     font-size: 0.8rem;
     text-align: center;
     color: #bdc3c7;
-    padding-top: 300px;
+    padding-top: 250px;
 }
 
 .acknowledgment {
