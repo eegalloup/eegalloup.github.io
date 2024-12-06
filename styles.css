@@ -107,17 +107,19 @@ body {
 }
 
 .container {
-    position: relative; /* Fix it to the viewport */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left side of the screen */
-    width: 1550px; /* Set a specific width */
-    height: 100%; /* Full viewport height */
-    background-color: #a12d27; /* Background color */
+    display: block; /* Make it behave like a block-level button */
+    background-color: #a12d27; /* Button background color */
     color: white; /* Text color */
-    padding: 20px 10px 20px 360px; /* Internal spacing */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-    overflow-y: auto; /* Add scrolling if content overflows */
-    border-radius: 0px 20px 20px 0px;
+    text-decoration: none; /* Remove default underline from links */
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px auto; /* Center the button horizontally */
+    width: 100%;
+    max-width: 1500px; /* Limit button width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Style the "button-like" link */
