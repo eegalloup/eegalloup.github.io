@@ -219,6 +219,12 @@ button:hover {
     width: 100%; /* Ensure it spans full width */
 }
 
+/* Vertical Spacer Extra Large*/
+.spacer-extra-large {
+    height: 220px; /* Adjust height for vertical space */
+    width: 100%; /* Ensure it spans full width */
+}
+
 /* Description Columns*/
 .row{
     width: 100%;

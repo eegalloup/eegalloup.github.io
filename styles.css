@@ -108,7 +108,7 @@ body {
 
 .container {
     display: block; /* Make it behave like a block-level button */
-    background-color: #a12d27; /* Button background color */
+    background-color: #f2f2f2; /* Button background color */
     color: white; /* Text color */
     text-decoration: none; /* Remove default underline from links */
     padding: 40px;
@@ -118,7 +118,7 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin: 20px auto; /* Center the button horizontally */
     width: 100%;
-    max-width: 1500px; /* Limit button width */
+    max-width: 800px; /* Limit button width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -193,9 +193,9 @@ body {
 }
 
 .cta-button {
-    background-color: #ffffff;
+    background-color: #a12d27;
     border: none;
-    color: #a12d27;
+    color: #ffffff;
     font-size: 1.2rem;
     font-weight: 550;
     padding: 10px 20px;
