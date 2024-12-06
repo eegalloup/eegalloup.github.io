@@ -1,0 +1,294 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input, textarea, button {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+#preview {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9f9f9; /* Light background for clarity */
+    color: #333; /* Standard text color */
+    margin: 0;
+    padding: 0px;
+    text-align: center;
+}
+
+/* Site Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 20px 40px 20px 40px; /* Remove bottom padding */
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
+.logo-container .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #a12d27;
+}
+
+.logo {
+    max-width: 180px; 
+    height: auto; 
+}
+
+.directory ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.directory a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.directory a:hover {
+    color: #a12d27;
+}
+
+/* Header Container */
+.header-container {
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Header Content */
+.full-page-image {
+    margin: 0;
+    padding: 0;
+    height: 90vh; /* Full viewport height */
+    background: url('images/DSC01994.jpg') no-repeat center center/cover;
+    position: relative;
+} 
+
+/* Vertical Spacer */
+.spacer {
+    height: 200px; /* Adjust height for vertical space */
+    width: 100%; /* Ensure it spans full width */
+}
+
+/* Container Styling */
+.container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft container shadow */
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-top: 140px;
+    text-align: left;
+}
+
+.container h1{
+    margin-bottom: 12px;
+    font-weight: 300;
+}
+.container p{
+    margin-bottom: 25px;
+    text-indent: 20px;
+}
+/* Section Titles */
+h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #a12d27; /* Consistent red tone */
+}
+
+/* Input Fields */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="text"], input[type="number"], input[type="date"], textarea, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #a12d27; /* Consistent red */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #911d1a;
+}
+
+button:active {
+    background-color: #5c1a18;
+    transform: scale(0.95);
+}
+
+/* Calculators and Sections */
+.calculator {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.calculator h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #a12d27;
+}
+
+.form-group input{
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group select {
+    width: 10%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group select {
+    margin-top: 5px;
+}
+
+.form-group button {
+    width: 26%;
+    padding: 12px;
+    background-color: #a12d27;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.result {
+    font-size: 1rem;
+    color: #444;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+/* Section Containers */
+.tonewood-calculators, .finishing-details, .project-summary {
+    margin-top: 30px;
+}
+
+.calculator, .finishing-entry, .summary-entry, .stage-entry, .setup-entry {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c7c7c7;
+}
+
+.calculator h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #a83226;
+    margin-top: 15px;
+}
+
+.calculator p, .finishing-entry p, .summary-entry p {
+    margin-top: 10px;
+    color: #e2e2e2;
+}
+
+.intro-block {
+    position: fixed;
+    top: 120px; /* Keeps it below the header */
+    left: 20px; /* Align to the left margin */
+    width: 280px; /* Fixed width */
+    padding: 30px 20px 20px; /* Added extra padding at the top */
+    background-color: #f2f2f2; /* Matches container styling */
+    border-radius: 12px; /* Consistent styling */
+    border: none; /* Galloup dark red */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Consistent shadow */
+    color: #e2e2e2; /* Light text for readability */
+    font-family: 'Montserrat', sans-serif;
+    z-index: 5; /* Ensure it stays above other content */
+    top: 140px;
+}
+
+.intro-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem; /* Standard heading size */
+    color: #a83226; /* Galloup red for the heading */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.intro-block p {
+    font-size: 1rem; /* Standard text size */
+    line-height: 1.5;
+    color: #1e1e1e; /* Matches text styling */
+    margin-top: 20px;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lutherie Journal</title>
+    <link rel="stylesheet" href="luthierjounralstyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script defer src="luthiersjournalscript.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/galloupschool.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <nav class="directory">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            <li><a href="Journal.html">Journal</a></li>
+            <li><a href="index.html#calculator-section">Calculators</a></li>
+            <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+            <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+<div class="intro-block">
+        <h2>Welcome to Your Journal</h2>
+        <p>This is your personalized space to document your journey. Use the form provided to log your progress, calculations, and insights into your work.</p>
+        <p>Our journal is currently a work in progress! Please message us to let us know what we can improve!</p>
+        <p>Our goal is to make a user-friendly platform that provides a multitude of tools to assist you in your luthier journey.</p>
+</div> 
+
+    <div class="container">
+        <h1>Lutherie Journal</h1>
+        <p>Track your builds from start to finish.</p>
+
+    <form id="form">
+        <h2>Project Overview</h2>
+        <label for="project-name">Project Name:</label>
+        <input type="text" id="project-name" name="project-name">
+
+        <label for="instrument-type">Instrument Type:</label>
+        <input type="text" id="instrument-type" name="instrument-type">
+
+        <label for="current-date">Current Date:</label>
+        <input type="date" id="current-date" name="current-date">
+
+        <label for="project-description">Project Description:</label>
+        <textarea id="project-description" name="project-description" rows="4"></textarea>
+
+        <label for="image">Upload an Image:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+
+        <img id="preview" alt="Image Preview">
+
+        <h2>Tonewood Selection</h2>
+        <label for="body-wood">Body Wood:</label>
+        <input type="text" id="body-wood" name="body-wood">
+
+        <label for="neck-wood">Neck Wood:</label>
+        <input type="text" id="neck-wood" name="neck-wood">
+
+        <label for="fretboard-wood">Fretboard Wood:</label>
+        <input type="text" id="fretboard-wood" name="fretboard-wood">
+
+        <label for="additional-notes">Additional Notes:</label>
+        <textarea id="additional-notes" name="additional-notes" rows="4"></textarea>
+
+        <h2>Build Stages</h2>
+        <label for="current-stage">Current Stage:</label>
+        <input type="text" id="current-stage" name="current-stage">
+
+        <label for="stage-notes">Stage Notes:</label>
+        <textarea id="stage-notes" name="stage-notes" rows="4"></textarea>
+
+        <h2>Setup and Tuning Logs</h2>
+        <label for="action-height">Action Height (in/mm):</label>
+        <input type="text" id="action-height" name="action-height">
+
+        <label for="neck-relief">Neck Relief (in/mm):</label>
+        <input type="text" id="neck-relief" name="neck-relief">
+
+        <label for="string-gauge">String Gauge:</label>
+        <input type="text" id="string-gauge" name="string-gauge">
+
+        <label for="tuning-setup">Tuning Setup:</label>
+        <textarea id="tuning-setup" name="tuning-setup" rows="4"></textarea>
+
+        <h2>Finishing Details</h2>
+        <label for="finishing-technique">Finishing Technique:</label>
+        <input type="text" id="finishing-technique" name="finishing-technique">
+
+        <label for="finish-color">Finish Color:</label>
+        <input type="text" id="finish-color" name="finish-color">
+
+        <label for="additional-notes-on-finish">Additional Notes on Finish:</label>
+        <textarea id="additional-notes-on-finish" name="additional-notes-on-finish" rows="4"></textarea>
+
+        <h2>Project Summary</h2>
+        <label for="project-summary">Project Summary:</label>
+        <textarea id="project-summary" name="project-summary" rows="4"></textarea>
+
+        <button type="button" id="download">Download as PDF</button>
+    </form>
+    </div>
+</body>
+</html>
