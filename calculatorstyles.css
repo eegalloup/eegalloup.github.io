@@ -241,6 +241,7 @@ button:hover {
     width: 100%;
     padding-left: 30%;
     margin-top: 30px;
+    margin-bottom: 250px;
 }
 
 .youngsmodcolumn{
@@ -280,7 +281,7 @@ footer {
     font-size: 0.8rem;
     text-align: center;
     color: #bdc3c7;
-    padding-top: 250px;
+    padding-top: 20px;
 }
 
 .acknowledgment {
@@ -291,4 +292,9 @@ footer {
 
 footer p {
     margin-bottom: 30px;
+}
+
+.table tbody{
+    text-align: center;
+    margin-left: 20px;
 }
