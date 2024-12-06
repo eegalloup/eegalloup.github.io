@@ -8,8 +8,8 @@
 /* Body Styling */
 body {
     font-family: 'Montserrat', sans-serif;
-    src: url(fonts/Montserrat/)
-    padding: 0;
+    src: url(fonts/Montserrat/);
+    padding: 0%;
     text-align: center;
 }
 
