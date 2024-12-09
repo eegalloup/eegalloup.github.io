@@ -62,21 +62,120 @@ body {
     height: auto; 
 }
 
-.directory ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+/* Default Styles (Applies to Desktop) */
+.directory-overlay {
+    position: static;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent; /* No background on desktop */
+    color: #555;
+    display: flex; /* Visible by default on desktop */
+    flex-direction: row; /* Horizontal layout for desktop */
+    justify-content: flex-end;
+    align-items: center;
+    z-index: auto;
+    opacity: 1; /* Fully visible */
+    transition: none; /* No transition on desktop */
 }
 
-.directory a {
+/* Desktop Navigation List */
+.directory-overlay ul {
+    display: flex; /* Horizontal layout */
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.directory-overlay ul li {
+    margin: 0;
+}
+
+.directory-overlay ul a {
+    font-size: 1rem;
     text-decoration: none;
     color: #555;
-    font-weight: 400;
     transition: color 0.3s ease;
 }
 
-.directory a:hover {
+.directory-overlay ul a:hover {
     color: #a12d27;
+}
+
+/* Mobile Styling */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+}
+
+.menu-close {
+    display: none; /* Hidden on desktop */
+}
+
+/* Mobile-Specific Rules */
+@media (max-width: 768px) {
+    .directory-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 0, 0, 0.95); /* Dark fullscreen background */
+        color: white;
+        display: none; /* Hidden by default */
+        flex-direction: column; /* Stacked layout */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0; /* Hidden state */
+        transition: opacity 0.3s ease;
+    }
+
+    .directory-overlay.active {
+        display: flex; /* Show fullscreen menu */
+        opacity: 1;
+    }
+
+    .directory-overlay ul {
+        display: block; /* Stack items vertically */
+    }
+
+    .directory-overlay ul li {
+        margin: 20px 0; /* Add vertical spacing */
+    }
+
+    .directory-overlay ul a {
+        font-size: 1.8rem;
+        color: #ffffff;
+    }
+
+    .site-header .menu-toggle {
+        display: block; /* Show toggle button on mobile */
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #1e1e1e;
+        padding: 0px;
+        margin: 0px;
+        width: auto;
+    }
+
+    .site-header .menu-close {
+        display: block; /* Show close button on mobile */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        padding: 0px;
+        margin: 0px;
+        width: auto;
+    }
 }
 
 /* Header Container */
