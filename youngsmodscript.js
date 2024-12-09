@@ -22,17 +22,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
 function calculateYoungsModulus() {
     // Retrieve inputs
-    const weight = parseFloat(document.getElementById("weight").value);
+    const weight = parseFloat(document.getElementById("weight").value.replace(',', '.'));
     const weightUnit = document.getElementById("weightUnit").value;
-    let length = parseFloat(document.getElementById("length").value);
+    let length = parseFloat(document.getElementById("length").value.replace(',', '.'));
     const lengthUnit = document.getElementById("lengthUnit").value;
-    let width = parseFloat(document.getElementById("width").value);
+    let width = parseFloat(document.getElementById("width").value.replace(',', '.'));
     const widthUnit = document.getElementById("widthUnit").value;
-    let thickness = parseFloat(document.getElementById("thickness").value);
+    let thickness = parseFloat(document.getElementById("thickness").value.replace(',', '.'));
     const thicknessUnit = document.getElementById("thicknessUnit").value;
-    let deflection = parseFloat(document.getElementById("deflection").value);
+    let deflection = parseFloat(document.getElementById("deflection").value.replace(',', '.'));
     const deflectionUnit = document.getElementById("deflectionUnit").value;
 
     // Validate inputs

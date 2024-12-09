@@ -42,46 +42,48 @@
             <form id="calculator">
                 <!-- Weight Input -->
                 <label for="weight">Weight (force):</label>
-                <input type="number" id="weight" placeholder="Enter weight (e.g., 5)">
+                <input type="number" id="weight" step="any" placeholder="Enter weight (e.g., 5)">
                 <select id="weightUnit">
-                    <option value="kg">Kilograms (kg)</option>
                     <option value="lb">Pounds (lb)</option>
+                    <option value="kg">Kilograms (kg)</option>
                 </select>
 
                 <!-- Length Input -->
                 <label for="length">Span Length (L):</label>
-                <input type="number" id="length" placeholder="Enter length (e.g., 20)">
+                <input type="number" id="length" step="any" placeholder="Enter length (e.g., 20)">
                 <select id="lengthUnit">
-                    <option value="m">Meters (m)</option>
                     <option value="in">Inches (in)</option>
+                    <option value="m">Meters (m)</option>
                 </select>
 
                 <!-- Width Input -->
                 <label for="width">Width (w):</label>
-                <input type="number" id="width" placeholder="Enter width (e.g., 6)">
+                <input type="number" id="width" step="any" placeholder="Enter width (e.g., 6)">
                 <select id="widthUnit">
-                    <option value="m">Meters (m)</option>
                     <option value="in">Inches (in)</option>
+                    <option value="m">Meters (m)</option>
                 </select>
 
                 <!-- Thickness Input -->
                 <label for="thickness">Thickness (t):</label>
-                <input type="number" id="thickness" placeholder="Enter thickness (e.g., 0.25)">
+                <input type="number" id="thickness" step="any" placeholder="Enter thickness (e.g., 0.25)">
                 <select id="thicknessUnit">
-                    <option value="m">Meters (m)</option>
                     <option value="in">Inches (in)</option>
+                    <option value="m">Meters (m)</option>
                 </select>
 
                 <!-- Deflection Input -->
                 <label for="deflection">Deflection (δ):</label>
-                <input type="number" id="deflection" placeholder="Enter deflection (e.g., 0.002)">
+                <input type="number" id="deflection" step="any" placeholder="Enter deflection (e.g., 0.002)">
                 <select id="deflectionUnit">
-                    <option value="m">Meters (m)</option>
                     <option value="in">Inches (in)</option>
+                    <option value="m">Meters (m)</option>
                 </select>
 
-                <!-- Calculate Button -->
-                <button type="button" onclick="calculateYoungsModulus()">Calculate Young's Modulus</button>
+                <div class="form-group">   
+                    <!-- Calculate Button -->
+                    <button onclick="calculateYoungsModulus()">Calculate Young's Modulus</button>
+                </div> 
             </form>
 
             <!-- Output -->

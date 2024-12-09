@@ -255,6 +255,8 @@ button {
     cursor: pointer;
     font-weight: 600;
     padding: 12px;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover {
@@ -471,7 +473,26 @@ footer p {
         align-items: center;
     }
     h1 {
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .youngsmodcolumn{
+        float: left;
+        width: 95%;
+        padding-right: 0%;
+    }
+    .youngsmodrow{
+        width: 100%;
+        padding-left: 5%;
+        margin-top: 30px;
+        margin-bottom: 250px;
+    }
+    .monopole-column{
+        float: right;
+        width: 100%;
+    }
+    .intro-instructions{
+        margin-left: 4%;
+        margin-right: 4%;
     }
 }
