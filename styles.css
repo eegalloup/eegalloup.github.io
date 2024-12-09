@@ -8,11 +8,9 @@
 /* Body Styling */
 body {
     font-family: 'Montserrat', sans-serif;
-        src: url(fonts/Montserrat/Montserrat-Regular.ttf);
     color: #555;
     background-color: #ffffff;
     text-align: center;
-    padding: 0;
 }
 
 /* Site Header */
@@ -21,26 +19,24 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #f2f2f2;
-     padding: 20px 40px 20px 40px; /* Remove bottom padding */
+    padding: 15px 20px;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.logo-container .logo {
+.logo {
     font-size: 1.2rem;
     font-weight: bold;
     color: #a12d27;
-}
-
-.logo {
-    width: 180px; /* Set the width you want */
-    height: auto; /* Preserve the aspect ratio */
+    width: 150px;
+    height: auto;
 }
 
 .directory ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .directory a {
@@ -54,263 +50,118 @@ body {
     color: #a12d27;
 }
 
-/* Header Content */
+/* Full-Page Image */
 .full-page-image {
-    margin: 0;
-    padding: 0;
-    height: 90vh; /* Full viewport height */
+    height: 80vh;
     background: url('images/DSC01994.jpg') no-repeat center center/cover;
     position: relative;
-} 
+}
 
-/* Overlay for Centered Content */
+/* Overlay */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black for contrast */
-    display: flex; /* Enables Flexbox */
-    flex-direction: column; /* Stacks elements vertically */
-    justify-content: center; /* Centers content vertically */
-    align-items: center; /* Centers content horizontally */
-    text-align: center; /* Ensures text alignment */
-    color: white; /* Text color */
-    padding: 40px;
-}
-
-.header-container {
-    margin: 30px auto;
-    max-width: 1600px;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    color: white;
+    padding: 20px;
 }
 
 .title {
-    font-size: 8.4rem;
+    font-size: 6rem;
     font-weight: 500;
     letter-spacing: 4px;
     color: #ffffff;
 }
 
-.about-title {
-    font-size: 4.2rem;
-    font-weight: 500;
-    letter-spacing: 3px;
-    color: #a12d27;
-}
-
-/* Vertical Spacer */
-.spacer {
-    height: 30px; /* Adjust height for vertical space */
-    width: 100%; /* Ensure it spans full width */
-}
-
-.container {
-    display: block; /* Make it behave like a block-level button */
-    background-color: #f2f2f2; /* Button background color */
-    color: white; /* Text color */
-    text-decoration: none; /* Remove default underline from links */
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 20px auto; /* Center the button horizontally */
-    width: 100%;
-    max-width: 800px; /* Limit button width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Style the "button-like" link */
-.journal-container {
-    display: block; /* Make it behave like a block-level button */
-    background-color: #f2f2f2; /* Button background color */
-    color: white; /* Text color */
-    text-decoration: none; /* Remove default underline from links */
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 20px auto; /* Center the button horizontally */
-    width: 100%;
-    max-width: 800px; /* Limit button width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover and active effects */
-.journal-container:hover {
-    background-color: #c7c7c7; /* Darker red on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-}
-
-.journal-container:active {
-    background-color: #5c1a18; /* Even darker red on click */
-    transform: translateY(1px); /* Slight press effect */
-}
-
-/* Journal section styling */
-.journal-section h1 {
-    font-size: 2.9rem;
-    margin-bottom: 10px;
-    color:#a12d27;
-    margin-bottom: 20px;
-    font-family: Montserrat;
-    font-weight: 300;
-}
-
-.journal-section p {
-    font-size: 1.2rem;
-    margin: 5px 0;
-    color: #3e3e3e;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-.journal-section .spacer {
-    height: 10px;
-}
-
-.subtitle {
-    font-size: 1.9rem;
-    font-weight: 500;
-    color: #ffffff;
-    font-style: italic;
-}
-
-/* Intro Section */
-.intro-section {
-    margin: 40px auto;
-    max-width: 900px;
-}
-
-.intro-section p {
-    font-size: 1.5rem;
-    margin-bottom: 50px;
-    max-width: 900px;
-    line-height: 1.6;
-}
-
-.cta-button {
-    background-color: #a12d27;
-    border: none;
-    color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: 550;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #c7c7c7;
-}
-
-/* About Section */
-.about-section {
-    margin: 40px auto;
-    max-width: 800px;
-}
-
-.about-section p {
-    font-size: 1 rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.subtitle-about {
-    font-size: 1.9rem;
-    font-weight: 500;
-    color: #3e3e3e;
-    font-style: italic;
-}
-
-/* Calculator Selection Section */
-.calculator-section {
-    padding: 10px 20px; /* Add vertical and horizontal padding */
-    margin: 40px auto;
-    max-width: 800px;
-}
-
-.calculator-section h2 {
-    font-size: 2rem;
+/* Sections */
+.container, .journal-container {
+    background-color: #f2f2f2;
     color: #555;
-    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
+.container:hover, .journal-container:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Grid for Calculator */
 .calculator-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 .calculator-button {
-    background-color: #f2f2f2;
-    color: #a12d27;
-    border: none;
-    font-size: 1.5rem;
-    font-weight: 300;
-    height: 200px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     text-align: left;
+    transition: transform 0.2s ease;
 }
 
 .calculator-button:hover {
-    background-color: #e0e0e0;
     transform: translateY(-3px);
-}
-
-.calculator-button a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.calculator-title {
-    font-family: Montserrat;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.calculator-description {
-    font-family: Montserrat;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #555;
 }
 
 /* Footer */
 footer {
-    margin-top: 50px;
-    font-size: 0.8rem;
-    color: #bdc3c7;
-}
-
-.acknowledgment {
-    font-size: 0.8rem;
+    margin-top: 30px;
+    font-size: 0.9rem;
     color: #7f8c8d;
-    margin-bottom: 10px;
 }
 
-footer p {
-    margin-bottom: 30px;
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .directory ul {
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 4rem;
+    }
+
+    .container, .journal-container {
+        max-width: 95%;
+    }
+
+    .full-page-image {
+        height: 60vh;
+    }
 }
 
-.wrench {
-    width: 400px; /* Set the width you want */
-    height: auto; /* Preserve the aspect ratio */
-    margin-top: 0%;
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .overlay {
+        padding: 10px;
+    }
+
+    .directory ul {
+        gap: 10px;
+    }
+
+    .calculator-button {
+        padding: 10px;
+    }
 }
