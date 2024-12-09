@@ -1,3 +1,9 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 form {
     display: flex;
@@ -215,6 +221,25 @@ body {
     width: 100%; /* Ensure it spans full width */
 }
 
+/* Vertical Spacer Large*/
+.spacer-large {
+    height: 100px; /* Adjust height for vertical space */
+    width: 100%; /* Ensure it spans full width */
+}
+
+/* Hide on Desktop (screens wider than 768px) */
+@media (min-width: 769px) {
+    .spacer-large {
+        display: none; /* Hidden on desktop screens */
+    }
+}
+
+/* Vertical Spacer Extra Large*/
+.spacer-extra-large {
+    height: 220px; /* Adjust height for vertical space */
+    width: 100%; /* Ensure it spans full width */
+}
+
 /* Container Styling */
 .container {
     background-color: #f2f2f2;
@@ -225,6 +250,7 @@ body {
     margin: 20px auto;
     margin-top: 140px;
     text-align: left;
+    margin-left: 340px;
 }
 
 .container h1{
@@ -235,6 +261,7 @@ body {
     margin-bottom: 25px;
     text-indent: 20px;
 }
+
 /* Section Titles */
 h2 {
     font-weight: 600;
@@ -405,4 +432,21 @@ button:active {
     line-height: 1.5;
     color: #1e1e1e; /* Matches text styling */
     margin-top: 20px;
+}
+
+/* Mobile-Specific Styling */
+@media (max-width: 768px) {
+    .intro-block {
+        position: static; /* Remove fixed positioning */
+        margin: 0 auto 20px; /* Center it and add spacing below */
+        width: 90%; /* Take up most of the screen width */
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    }
+
+    .container {
+        margin-left: 15px; /* Reset margin */
+        margin-right: 15px;
+        margin-top: 20px; /* Space below intro block */
+    }
 }
