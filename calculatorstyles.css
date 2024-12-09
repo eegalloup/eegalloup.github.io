@@ -26,12 +26,28 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     color: #a12d27;
+    justify-content: left;
+    display: flex;
 }
 
 .logo {
-    max-width: 180px; 
-    height: auto; 
+    width: 180px; /* Set the width you want */
+    height: auto; /* Preserve the aspect ratio */
 }
+
+/* Mobile-Specific Styling */
+@media (max-width: 768px) {
+    .logo-container .logo {
+        font-size: 1rem; /* Reduce font size */
+    }
+
+    .logo {
+        width: 120px; /* Smaller width for mobile */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0px;
+    }
+}
+
 
 /* Default Styles (Applies to Desktop) */
 .directory-overlay {
@@ -425,4 +441,37 @@ footer p {
 .table tbody{
     text-align: center;
     margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .column {
+        float: none; /* Remove floating */
+        width: 100%; /* Full width for single column */
+        padding-right: 0; /* Remove right padding */
+        margin-bottom: 20px; /* Adjust spacing */
+    }
+    .formula-img {
+        margin-bottom: 30px;
+        width: 95%;
+    }
+    .formula-container {
+        justify-content: center;
+        align-items: center;
+    }
+    .column p{
+        margin-right: 5%;
+    }
+    .calculator{
+        width: 90%;
+        padding: 15px;
+    }
+    .calculator-container{
+        justify-content: center;
+        margin: 0 auto;
+        align-items: center;
+    }
+    h1 {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
