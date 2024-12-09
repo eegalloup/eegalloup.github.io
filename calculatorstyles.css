@@ -57,6 +57,22 @@ body {
     text-align: center;
 }
 
+.intro-instructions{
+    margin: 40px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.instructions {
+    margin: auto;
+    max-width: 1000px;
+    text-align: left;
+}
+
+.instructions p{
+    margin-top: 8px;
+}
+
 h1 {
     font-weight: 300;
     color: #1e1e1e;
@@ -254,6 +270,18 @@ button:hover {
     margin-bottom: 20px;
 }
 
+.monopole-row{
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+.monopole-column{
+    float: right;
+    width: 40%;
+}
 
 .column p{
     margin-bottom: 20px;

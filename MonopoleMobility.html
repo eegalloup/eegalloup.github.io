@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopole Mobility Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="calculatorstyles.css">
+</head>
+<body>
+    <header class="site-header">
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="images/galloupschool.png" alt="Logo" class="logo">
+        </a>
+    </div>
+    <nav class="directory">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="luthiersjournal.html">Journal</a></li>
+            <li><a href="index.html#calculator-section">Calculators</a></li>
+            <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+    <header>
+        <h1>Monopole Mobility Calculator</h1>
+    </header>
+            <p class="intro-instructions">
+                Monopole mobility measures how much the guitar top moves in response to the forces from the strings. Monitoring this can help luthiers refine their instruments for optimal performance and sound quality.
+            </p>
+    <main>
+        <div class="monopole-row">
+            <section class="calculator-container">
+                <div class="monopole-column">
+                    <section class="calculator">
+                        <!-- Stiffness K Calculator -->
+                        <h2>Stiffness (K) Calculator</h2>
+                        <form id="stiffnessForm">
+                            <label for="weight">Weight:</label>
+                            <input type="number" id="weight" step="any" placeholder="Enter weight" required>
+                            <select id="weightUnit">
+                                <option value="grams">Grams</option>
+                                <option value="pounds">Pounds</option>
+                            </select>
+
+                            <label for="deflection">Deflection:</label>
+                            <input type="number" id="deflection" step="any" placeholder="Enter deflection" required>
+                            <select id="deflectionUnit">
+                                <option value="inches">Inches</option>
+                                <option value="millimeters">Millimeters</option>
+                            </select>
+
+                            <button type="submit">Calculate Stiffness K</button>
+                        </form>
+                        <div id="stiffnessResult">
+                            <p>Stiffness (K): <span id="kOutput">-</span> N/m</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="monopole-column">
+                    <div class="instructions">
+                        <h2>How to Create a Deflection Jig</h2>
+                        <h3><strong>Instructions:</strong></h3>
+                        <p>Position a dial indicator directly above the bridge of the guitar, supported by stable platforms on either side of the guitar top.</p>
+                        <p>Place a known weight on the bridge, allowing the dial indicator to measure how much the guitar top deflects.</p>
+                        <p><strong>Record this value as your deflection.</strong></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Monopole Mobility Calculator -->
+        <div class="monopole-row">
+            <section class="calculator-container">
+                <div class="monopole-column">
+                    <section class="calculator">
+                        <h2>Monopole Mobility Calculator</h2>
+                        <form id="mobilityForm">
+                            <label for="frequency">Monopole Resonance Frequency (Hz):</label>
+                            <input type="number" id="frequency" step="any" placeholder="Enter frequency" required>
+
+                            <label for="stiffnessInput">Stiffness K (N/m):</label>
+                            <input type="number" id="stiffnessInput" step="any" placeholder="Enter stiffness K" required>
+
+                            <button type="submit">Calculate Monopole Mobility</button>
+                        </form>
+                        <div id="mobilityResult">
+                            <p>Monopole Mobility: <span id="mobilityOutput">-</span> m²/V·s</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="monopole-column">
+                    <div class="instructions">
+                        <h2>Determine Monopole Resonance Frequency</h2>
+                    </div>
+                    <div class="instructions">
+                        <h3> <strong>Instructions:</strong> </h3>
+                        <p>Plug the soundhole with a soft material that won't damage the guitar. Gently tap the bridge with your finger to generate a sound.</p>
+                        <p>Use an FFT analysis app to identify the dominant frequency produced by the tap.</p>
+                        <p><strong>This value is your Monopole resonance frequency.</strong> If you're unsure how to proceed, refer to Galloup Notes on our Patreon for further guidance. </p>
+                    </div>
+                </div>
+
+        </div>   
+        </section>
+    </main>
+    
+    <footer>
+        <p class="acknowledgment">Developed by Galloup School</p>
+        <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
+    </footer>
+    
+    <script src="monopolescript.js"></script>
+</body>
+</html>
