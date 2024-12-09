@@ -55,11 +55,26 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     color: #a12d27;
+    justify-content: left;
+    display: flex;
 }
 
 .logo {
-    max-width: 180px; 
-    height: auto; 
+    width: 180px; /* Set the width you want */
+    height: auto; /* Preserve the aspect ratio */
+}
+
+/* Mobile-Specific Styling */
+@media (max-width: 768px) {
+    .logo-container .logo {
+        font-size: 1rem; /* Reduce font size */
+    }
+
+    .logo {
+        width: 120px; /* Smaller width for mobile */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0px;
+    }
 }
 
 /* Default Styles (Applies to Desktop) */
