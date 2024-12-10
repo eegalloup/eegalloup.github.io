@@ -416,9 +416,8 @@ body {
 /*Mobile Styling*/
 @media (max-width:768px) {
     .title {
-        font-size: 5.8rem;
+        font-size: 5rem;
         align-items: center;
-        max-width: 90%;
         text-align: center;
     }
     .subtitle{
