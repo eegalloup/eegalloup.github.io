@@ -33,8 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Display the main result as Angle 1
         document.getElementById("result").innerHTML = `
             <strong>Neck Angle:</strong> ${theta1.toFixed(2)}°<br>
-            Hypotenuse (c): ${c.toFixed(3)}<br>
-            Angle θ2: ${theta2.toFixed(2)}°
         `;
     }
 
