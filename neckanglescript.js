@@ -1,8 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuClose = document.querySelector(".menu-close");
+    const directoryOverlay = document.querySelector(".directory-overlay");
+    const menuLinks = document.querySelectorAll(".directory-overlay ul a");
+
+    // Debugging: Check if elements exist
+    console.log("Menu Toggle:", menuToggle);
+    console.log("Menu Close:", menuClose);
+    console.log("Directory Overlay:", directoryOverlay);
+
+    // Prevent script errors if elements don't exist
+    if (menuToggle && directoryOverlay) {
+        // Open menu
+        menuToggle.addEventListener("click", function () {
+            directoryOverlay.classList.add("active");
+        });
+    }
+
+    if (menuClose) {
+        // Close menu
+        menuClose.addEventListener("click", function () {
+            directoryOverlay.classList.remove("active");
+        });
+    }
+
+    // Close menu when a link is clicked
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            directoryOverlay.classList.remove("active");
+        });
+    });
+
+    // Function to calculate frets
     function calculateFrets() {
         const scaleLength = parseFloat(document.getElementById("scale-length").value);
         const fretNumber = parseInt(document.getElementById("fret-number").value);
-        
+
         if (isNaN(scaleLength) || scaleLength <= 0 || isNaN(fretNumber) || fretNumber <= 0 || fretNumber > 24) {
             alert("Please enter a valid scale length and fret number.");
             return;
@@ -18,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         calculateTriangle(sideB);
     }
 
+    // Function to calculate the triangle
     function calculateTriangle(b) {
         let a = parseFloat(document.getElementById("sideA").value);
 
@@ -28,13 +62,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let c = Math.sqrt(a ** 2 + b ** 2);
         let theta1 = Math.asin(a / c) * (180 / Math.PI);
-        let theta2 = Math.asin(b / c) * (180 / Math.PI);
 
-        // Display the main result as Angle 1
+        // Display the main result as Neck Angle
         document.getElementById("result").innerHTML = `
             <strong>Neck Angle:</strong> ${theta1.toFixed(2)}°<br>
         `;
     }
 
-    document.getElementById("calculate-fret").addEventListener("click", calculateFrets);
+    // Check if button exists before adding event listener
+    const calculateButton = document.getElementById("calculate-fret");
+    if (calculateButton) {
+        calculateButton.addEventListener("click", calculateFrets);
+    } else {
+        console.log("Error: Calculate button not found!");
+    }
 });

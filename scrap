@@ -1,0 +1,2 @@
+            Hypotenuse (c): ${c.toFixed(3)}<br>
+            Angle θ2: ${theta2.toFixed(2)}°
