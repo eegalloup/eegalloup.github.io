@@ -423,6 +423,12 @@ button:hover {
     border-radius: 10px;
 }
 
+/*Neck Angle Specific*/
+.neck-angle-result{
+    font-size: 20px;
+    text-align: center;
+}
+
 /*Neck Angle Calculator Description*/
 
 .neckanglerow{
