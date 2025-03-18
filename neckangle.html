@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Luthier Toolbox</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="calculatorstyles.css">
+    </head>
+    <body>
+        <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/galloupschool.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+        <nav class="directory-overlay">
+            <button class="menu-close" aria-label="Close navigation">
+                ✖
+            </button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="luthiersjournal.html">Journal</a></li>
+                <li><a href="index.html#calculator-section">Calculators</a></li>
+                <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        </header>
+
+        <h1>Neck Angle Calcluator</h1>
+
+    <div class="calculator-container">
+        <div class="calculator">
+            <p>Scale Length:</p>
+            <input type="number" id="scale-length" placeholder="Scale Length">
+
+            <p>Fret that meets the body:</p>
+            <input type="number" id="fret-number" placeholder="Fret Meets Body">
+
+            <p>Bridge Height:</p>
+            <input type="number" id="sideA" placeholder="Bridge Height">
+
+            <br>
+            <button id="calculate-fret" class="cta-button">Calculate</button>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <div class="youngsmodrow">
+        <div class="youngsmodcolumn">
+            <h2>How do you calculate <strong>Neck Angle?</strong></h2>
+        <p>To calculate your neck angle, <strong>picture the top of your guitar as a right triangle.</strong></p>
+        <p>INSERT DIAGRAM</p>
+        <p><strong>Side A</strong> is the height of your bridge from the top of your guitar. <strong>Side B</strong> is the length from the fret that meets the body of your guitar to the intonation point. With those two Sides, you can calculate for <strong>Side C</strong> using pythagorean theorum.</p>
+        <p>INSERT PYTHAGOREAN THEORUM</p>
+        <p>With your sides calculated, you can now solve for your angles. We are looking for <strong>Angle θ1</strong>, which is our neck angle. Solve for Angle θ1 using Sin -1. </p>
+        <p>INSERT SIN-1</p>
+        <p>The solution to this equation is your <strong>neck angle.</strong></p>
+        </div>
+    </div>
+    
+    <div class="spacer-extra-large">
+    </div>
+
+        <footer>
+            <p class="acknowledgment">Developed by Galloup School</p>
+    <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
+        </footer>
+
+    <script src="neckanglescript.js"></script>
+
+</body>
+</html>

@@ -504,3 +504,30 @@ footer p {
         width: 100%;
     }
 }
+
+/* Triangle Visualizer */
+#visualizer {
+    margin-top: 30px;
+}
+
+svg {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 30px;
+        margin-top: 120px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        width: 95%;
+    }
+}
