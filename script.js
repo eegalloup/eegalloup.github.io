@@ -21,3 +21,36 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+window.addEventListener("scroll", function () {
+    const header = document.querySelector(".site-header");
+    if (window.scrollY > 50) { // Adjust threshold if needed
+        header.classList.add("scrolled"); // Add class when scrolling down
+    } else {
+        header.classList.remove("scrolled"); // Remove class when at top
+    }
+});
+
+window.addEventListener("scroll", function () {
+    const header = document.querySelector(".site-header");
+
+    if (window.scrollY > 50) {  
+        header.classList.add("scrolled");
+        console.log("Scrolled: Normal logo should appear");  // Debugging
+    } else {
+        header.classList.remove("scrolled");
+        console.log("At top: White logo should appear");  // Debugging
+    }
+});
+
+window.addEventListener("scroll", function () {
+    const header = document.querySelector(".site-header");
+    if (window.scrollY > 50) { 
+        header.classList.add("scrolled"); // Adds scroll effect
+    } else {
+        header.classList.remove("scrolled"); // Removes scroll effect
+    }
+});
+
+
+

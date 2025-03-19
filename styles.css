@@ -1,31 +1,96 @@
-/* General Reset */
+/* ======================================
+   Global Reset
+====================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
+/* ======================================
+   Body Styling
+====================================== */
 body {
     font-family: 'Montserrat', sans-serif;
-        src: url(fonts/Montserrat/Montserrat-Regular.ttf);
+    src: url(fonts/Montserrat/Montserrat-Regular.ttf);
     color: #555;
     background-color: #ffffff;
     text-align: center;
     padding: 0;
 }
 
-/* Site Header */
+/* ======================================
+   Site Header
+====================================== */
 .site-header {
+    position: fixed;
     display: flex;
     justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures it spans the full width */
     align-items: center;
-    background-color: #f2f2f2;
-     padding: 20px 40px 20px 40px; /* Remove bottom padding */
-    border-bottom: 1px solid #ccc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    padding: 25px 40px;
+    z-index: 100;
+    transition: background-color 0.4s ease, box-shadow 0.3s ease;
+    font-weight: 500;
 }
 
+.site-header.scrolled {
+    background-color: #f2f2f2; /* Background appears on scroll */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow */
+}
+
+/* ======================================
+   Navigation Link Colors
+====================================== */
+/* Ensure White Text Before Scroll */
+.directory-overlay ul a {
+    color: white !important;  /* Force white text before scroll */
+    font-weight: 400 !important; /* Force normal weight */
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* Change to Light Gray on Scroll */
+.site-header.scrolled .directory-overlay ul a {
+    color: #888 !important; /* Force light gray on scroll */
+    font-weight: 400 !important; /* Keep normal weight */
+}
+
+/* ======================================
+   Logo & Branding
+====================================== */
+/* Default: Show White Logo, Hide Normal Logo */
+.logo-white {
+    display: block;
+    position: absolute; /* Ensure it sits in the same position */
+    width: 180px; /* Set the width you want */
+    height: auto; /* Preserve the aspect ratio */
+}
+.logo {
+    display: none;
+    width: 180px; /* Set the width you want */
+    height: auto; /* Preserve the aspect ratio */
+}
+
+/* Logo Container */
+.logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* On Scroll: Toggle Logos */
+.site-header.scrolled .logo-white {
+    display: none;
+}
+.site-header.scrolled .logo {
+    display: block;
+    position: relative; /* Maintain correct positioning */
+}
+
+/* Logo within Container */
 .logo-container .logo {
     font-size: 1.2rem;
     font-weight: bold;
@@ -34,26 +99,21 @@ body {
     display: flex;
 }
 
-.logo {
-    width: 180px; /* Set the width you want */
-    height: auto; /* Preserve the aspect ratio */
-}
-
-/* Mobile-Specific Styling */
+/* Mobile-Specific Logo Styling */
 @media (max-width: 768px) {
     .logo-container .logo {
         font-size: 1rem; /* Reduce font size */
     }
-
+    .logo-white,
     .logo {
-        width: 120px; /* Smaller width for mobile */
-        height: auto; /* Maintain aspect ratio */
-        margin: 0px;
+        width: 120px; /* Match mobile size */
+        height: auto;
     }
 }
 
-
-/* Default Styles (Applies to Desktop) */
+/* ======================================
+   Navigation - Desktop
+====================================== */
 .directory-overlay {
     position: static;
     top: 0;
@@ -71,7 +131,6 @@ body {
     transition: none; /* No transition on desktop */
 }
 
-/* Desktop Navigation List */
 .directory-overlay ul {
     display: flex; /* Horizontal layout */
     gap: 20px;
@@ -95,7 +154,9 @@ body {
     color: #a12d27;
 }
 
-/* Mobile Styling */
+/* ======================================
+   Mobile Navigation Toggle
+====================================== */
 .menu-toggle {
     display: none; /* Hidden on desktop */
 }
@@ -104,7 +165,9 @@ body {
     display: none; /* Hidden on desktop */
 }
 
-/* Mobile-Specific Rules */
+/* ======================================
+   Mobile Navigation - Specific Rules
+====================================== */
 @media (max-width: 768px) {
     .directory-overlay {
         position: fixed;
@@ -122,34 +185,33 @@ body {
         opacity: 0; /* Hidden state */
         transition: opacity 0.3s ease;
     }
-
     .directory-overlay.active {
         display: flex; /* Show fullscreen menu */
         opacity: 1;
     }
-
     .directory-overlay ul {
         display: block; /* Stack items vertically */
     }
-
     .directory-overlay ul li {
         margin: 20px 0; /* Add vertical spacing */
     }
-
     .directory-overlay ul a {
         font-size: 1.8rem;
         color: #ffffff;
     }
-
     .menu-toggle {
         display: block; /* Show toggle button on mobile */
         background: none;
         border: none;
         font-size: 1.5rem;
         cursor: pointer;
-        color: #1e1e1e;
+        color: white; /* Default white */
+        transition: color 0.3s ease;
     }
-
+    /* After Scroll - Dark Gray Menu Icon */
+    .site-header.scrolled .menu-toggle {
+        color: #1e1e1e; /* Dark gray */
+    }
     .menu-close {
         display: block; /* Show close button on mobile */
         position: absolute;
@@ -163,14 +225,25 @@ body {
     }
 }
 
-/* Header Content */
-.full-page-image {
+/* ======================================
+   Header Content & Backgrounds
+====================================== */
+.full-page-image-about {
     margin: 0;
     padding: 0;
-    height: 90vh; /* Full viewport height */
+    height: 100vh; /* Full viewport height */
     background: url('images/DSC01994.jpg') no-repeat center center/cover;
     position: relative;
-} 
+    z-index: 10;
+}
+.full-page-image-index {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    background: url('images/IMG003.jpg') no-repeat center center/cover;
+    position: relative;
+    z-index: 10;
+}
 
 /* Overlay for Centered Content */
 .overlay {
@@ -179,7 +252,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black for contrast */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for contrast */
     display: flex; /* Enables Flexbox */
     flex-direction: column; /* Stacks elements vertically */
     justify-content: center; /* Centers content vertically */
@@ -189,24 +262,47 @@ body {
     padding: 40px;
 }
 
+/* Header Container */
 .header-container {
-    margin: 30px auto;
-    max-width: 1600px;
-    text-align: center;
+    margin: 30px 30px 80px 30px;
+    width: 100%;
+    height: 100vh;
+    text-align: left;
+    position: relative;
+    padding-left: 10%;
+    padding-top: 10%;
 }
 
+/* ======================================
+   Typography & Spacing
+====================================== */
 .title {
-    font-size: 8.4rem;
-    font-weight: 500;
-    letter-spacing: 4px;
+    font-size: 6rem;
+    font-weight: 200;
+    letter-spacing: 0px;
     color: #ffffff;
+    line-height: 100%;
+    font-weight: 600;
 }
-
 .about-title {
     font-size: 4.2rem;
     font-weight: 500;
     letter-spacing: 3px;
     color: #a12d27;
+}
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    font-style: normal;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.subtitle-about {
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: #3e3e3e;
+    font-style: italic;
 }
 
 /* Vertical Spacer */
@@ -215,6 +311,31 @@ body {
     width: 100%; /* Ensure it spans full width */
 }
 
+/*Graphics*/
+.circle1 {
+    position: absolute;
+    top: -90px; /* Move it above the journal container */
+    left: -130px; /* Shift it outside the left edge */
+    width: 300px; /* Adjust circle size */
+    height: 300px;
+    border-radius: 50%;
+    z-index: 1; /* Behind the journal container */
+}
+
+.circle2 {
+    position: absolute;
+    top: 90px; /* Move it above the journal container */
+    left: 620px; /* Shift it outside the left edge */
+    width: 300px; /* Adjust circle size */
+    height: 300px;
+    border-radius: 50%;
+    z-index: 1; /* Behind the journal container */
+    transform: rotate(120deg); /* Rotates the element 45 degrees */
+}
+
+/* ======================================
+   Buttons & Container Elements
+====================================== */
 .container {
     display: block; /* Make it behave like a block-level button */
     background-color: #f2f2f2; /* Button background color */
@@ -231,24 +352,30 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the "button-like" link */
+.journal-wrapper {
+    position: relative; /* Ensures absolute positioning works inside */
+    display: inline-block; /* Shrinks to fit content */
+}
+
+
 .journal-container {
-    display: block; /* Make it behave like a block-level button */
-    background-color: #f2f2f2; /* Button background color */
-    color: white; /* Text color */
-    text-decoration: none; /* Remove default underline from links */
+    position: relative; /* Enables absolute positioning inside */
+    display: block;
+    background-color: #f2f2f2;
+    color: white;
+    text-decoration: none;
     padding: 40px;
     border-radius: 20px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 20px auto; /* Center the button horizontally */
+    margin: 20px auto;
     width: 100%;
-    max-width: 800px; /* Limit button width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    z-index: 3; /* Above the circle */
 }
 
-/* Hover and active effects */
 .journal-container:hover {
     background-color: #c7c7c7; /* Darker red on hover */
     transform: translateY(-2px); /* Subtle lift effect */
@@ -259,16 +386,16 @@ body {
     transform: translateY(1px); /* Slight press effect */
 }
 
-/* Journal section styling */
+/* ======================================
+   Journal Section
+====================================== */
 .journal-section h1 {
     font-size: 2.9rem;
-    margin-bottom: 10px;
-    color:#a12d27;
     margin-bottom: 20px;
+    color: #a12d27;
     font-family: Montserrat;
     font-weight: 300;
 }
-
 .journal-section p {
     font-size: 1.2rem;
     margin: 5px 0;
@@ -276,24 +403,18 @@ body {
     padding-left: 100px;
     padding-right: 100px;
 }
-
 .journal-section .spacer {
     height: 10px;
 }
 
-.subtitle {
-    font-size: 1.9rem;
-    font-weight: 500;
-    color: #ffffff;
-    font-style: italic;
-}
-
-/* Intro Section */
+/* ======================================
+   Intro Section
+====================================== */
 .intro-section {
     margin: 40px auto;
     max-width: 900px;
+    z-index: 3;
 }
-
 .intro-section p {
     font-size: 1.5rem;
     margin-bottom: 50px;
@@ -301,23 +422,30 @@ body {
     line-height: 1.6;
 }
 
+/* ======================================
+   Call-to-Action Button
+====================================== */
 .cta-button {
     background-color: #a12d27;
     border: none;
     color: #ffffff;
     font-size: 1.2rem;
-    font-weight: 550;
-    padding: 10px 20px;
+    font-weight: 400;
+    padding: 15px 30px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 300px;
     transition: background-color 0.3s ease;
+    margin-top: 30px;
+    text-decoration: none;
 }
 
 .cta-button:hover {
     background-color: #c7c7c7;
 }
 
-/* About Section */
+/* ======================================
+   About Section
+====================================== */
 .about-section {
     margin: 40px auto;
     max-width: 800px;
@@ -329,104 +457,192 @@ body {
     line-height: 1.6;
 }
 
-
-.subtitle-about {
-    font-size: 1.9rem;
-    font-weight: 500;
-    color: #3e3e3e;
-    font-style: italic;
+/*Arrow*/
+.arrow{
+    max-width: 120px;
+    height: auto;
+    position: absolute;
+    bottom: 20px; /* Keeps it above the bottom edge */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 120px;
+    height: auto;
+    animation: bounce 1.5s infinite;
+    left: 50%;
 }
 
-/* Calculator Selection Section */
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-20%) translateY(0);
+    }
+    50% {
+        transform: translateX(-20%) translateY(10px);
+    }
+}
+
+/* Ensure it remains visible on all screen sizes */
+@media (max-height: 500px) {
+    .arrow {
+        bottom: 10px; /* Adjust for smaller screens */
+        max-width: 80px; /* Scale down if necessary */
+    }
+}
+
+/* ======================================
+   Calculator Section
+====================================== */
 .calculator-section {
-    padding: 10px 20px; /* Add vertical and horizontal padding */
+    padding: 10px 20px;
     margin: 40px auto;
     max-width: 800px;
 }
-
 .calculator-section h2 {
     font-size: 2rem;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 50px;
 }
-
 .calculator-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-content: center;
 }
-
 .calculator-button {
     background-color: #f2f2f2;
     color: #a12d27;
     border: none;
     font-size: 1.5rem;
     font-weight: 300;
-    height: 200px;
+    height: 300px;
     width: 400px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 20px;
+    padding: 0; /* Remove padding to let the image fully fit */
     cursor: pointer;
     border-radius: 20px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: left;
+    overflow: hidden; /* Prevents content from overflowing */
 }
-
 .calculator-button:hover {
     background-color: #e0e0e0;
     transform: translateY(-3px);
 }
 
+/* Ensure the anchor fills the button */
 .calculator-button a {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
 }
 
+/* Wrapper for the image */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Image inside the button */
+.calculator-photo {
+    width: 100%; /* Fills button width */
+    height: 160px; /* Set fixed height to maintain uniformity */
+    object-fit: cover; /* Ensures images fill the area without distortion */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+}
+
+/* Dark overlay */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    transition: opacity 0.3s ease;
+    opacity: .7; /* Fully visible by default */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Remove overlay on hover */
+.calculator-button:hover .image-overlay {
+    opacity: 0; /* Fades out on hover */
+}
+
+/* Text container */
+.calculator-content {
+    padding: 15px; /* Adds padding around text */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Title and Description Styling */
 .calculator-title {
     font-family: Montserrat;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
-
 .calculator-description {
     font-family: Montserrat;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #555;
+    margin: 5px 0;
 }
 
-/* Mobile-Specific Layout */
+/*Dots Texture*/
+
+
+/* ======================================
+   Mobile Layout Adjustments
+====================================== */
 @media (max-width: 768px) {
     .calculator-grid {
         grid-template-columns: 1fr; /* Single column layout on mobile */
     }
-
     .calculator-button {
         width: 100%; /* Ensure buttons span full width */
     }
 }
 
-/*Mobile Styling*/
 @media (max-width:768px) {
     .title {
-        font-size: 5rem;
+        font-size: 4.5rem;
         align-items: center;
-        text-align: center;
+        text-align: left;
     }
-    .subtitle{
-        font-size: 1.4rem;
+    .header-container {
+        margin: 30px auto;
+        text-align: left;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 40%;
+        justify-content: center;
+    }
+    .subtitle {
+        font-size: 1.2rem;
         align-items: center;
     }
-    .intro-section p{
-        padding-left: 15px;
-        padding-right: 15px;
+    .intro-section p {
+        padding-left: 25px;
+        padding-right: 25px;
     }
     .about-title {
         font-size: 3rem;
@@ -436,7 +652,7 @@ body {
     .subtitle-about {
         padding-top: 15px;
     }
-    .about-section p{
+    .about-section p {
         padding-left: 25px;
         padding-right: 25px;
     }
@@ -449,7 +665,7 @@ body {
     .journal-section h1 {
         font-size: 2.4rem;
         margin-bottom: 20px;
-        color:#a12d27;
+        color: #a12d27;
         font-family: Montserrat;
         font-weight: 300;
     }
@@ -461,25 +677,77 @@ body {
         margin-left: 3%;
         margin-right: 3%;
     }
+    .circle1,
+    .circle2 {
+        display: none !important; /* Completely hides the elements */
+    }
+    .contact {
+        grid-template-columns: 1fr !important; /* Ensures single column on small screens */
+        display: flex;
+        flex-direction: column; /* Stack elements */
+        align-items: stretch; /* Stretch to fill width */
+        justify-content: flex-start; /* Prevents extra space */
+        gap: 0px; /* Remove space between stacked items */
+        padding: 0; /* Remove padding */
+        margin: 0 auto; /* Ensure it doesn't create extra space */
+        width: 100%;
+        max-width: 100%; /* Prevents overflow */
+    }
+
+    .column {
+        width: 100%; /* Full width */
+        padding: 5px 10px; /* Reduce padding */
+        text-align: left; /* Keep left-aligned */
+        text-align: center;
+    }
+
+    .address {
+        margin-top: 20px !important;
+        padding: 0 !important;
+    }
 }
 
-/* Footer */
+/*Contact Us Columns*/
+
+.contact {
+    text-align: left;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    margin: 40px auto;
+    max-width: 800px;
+    margin-top: 80px;
+}
+
+.contact {
+    line-height: 2;
+}
+
+.address {
+    margin-top: 180px;
+    margin-bottom: 0px;
+}
+
+.column {
+    padding: 20px;
+}
+
+/* ======================================
+   Footer
+====================================== */
 footer {
     margin-top: 50px;
     font-size: 0.8rem;
     color: #bdc3c7;
 }
-
 .acknowledgment {
     font-size: 0.8rem;
     color: #7f8c8d;
     margin-bottom: 10px;
 }
-
 footer p {
     margin-bottom: 30px;
 }
-
 .wrench {
     width: 400px; /* Set the width you want */
     height: auto; /* Preserve the aspect ratio */
