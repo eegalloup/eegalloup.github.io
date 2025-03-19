@@ -32,32 +32,56 @@
         </nav>
     </header>
 
-        <h1>Neck Angle Calcluator</h1>
+    <h1>Neck Angle Calculator</h1>
 
     <div class="calculator-container">
         <div class="calculator">
-            <p>Scale Length:</p>
+            <p>Measurement System:</p>
             <div class="form-group">
-                <input type="number" id="scale-length" placeholder="Scale Length">
+                <select id="measurement-system">
+                    <option value="imperial">Inches (Imperial)</option>
+                    <option value="metric">Millimeters (Metric)</option>
+                </select>
             </div>
 
-            <p>Fret Number Where Neck Meets The Body:</p>
+            <p>Scale Length: <span class="info-icon" onclick="showInfo(event, 'scale-info')">ℹ️</span></p>
+            <div class="info-box" id="scale-info">This is the total vibrating length of the string.</div>
+            <div class="form-group">
+                <input type="number" id="scale-length" placeholder="Scale Length (in/mm)">
+            </div>
+
+            <p>Fret Number Where Neck Meets The Body: <span class="info-icon" onclick="showInfo(event, 'fret-info')">ℹ️</span></p>
+            <div class="info-box" id="fret-info">This is the fret number where the neck joins the body.</div>
             <div class="form-group">
                 <input type="number" id="fret-number" placeholder="Fret Number">
             </div>
 
-            <p>Bridge Height:</p>
+            <p>Bridge Height: <span class="info-icon" onclick="showInfo(event, 'bridge-info')">ℹ️</span></p>
+            <div class="info-box" id="bridge-info">This is the height of the bridge from the guitar top.</div>
             <div class="form-group">
-                <input type="number" id="sideA" placeholder="Bridge Height (in)">
+                <input type="number" id="sideA" placeholder="Bridge Height (in/mm)">
+            </div>
+
+            <p>Fretboard and Fret Thickness (Optional): <span class="info-icon" onclick="showInfo(event, '-info')">ℹ️</span></p>
+            <div class="info-box" id="fretboard-info">The thickness of your fretboard and the fret where the neck joins the body.</div>
+            <div class="form-group">
+                <input type="number" id="fretboard-thickness" placeholder="Thickness (in/mm)">
+            </div>
+
+            <p>Bridge Deflection (Optional): <span class="info-icon" onclick="showInfo(event, 'deflection-info')">ℹ️</span></p>
+            <div class="info-box" id="deflection-info">This accounts for any additional bridge movement post-string tension. This parameter is optional.</div>
+            <div class="form-group">
+                <input type="number" id="bridge-deflection" placeholder="Bridge Deflection (in/mm) (Default: 0)">
             </div>
 
             <div class="form-group">
                 <br>
                 <button id="calculate-fret" class="cta-button">Calculate</button>
             </div>
-            <div class="neck-angle-result"  id="result"></div>
+            <div class="neck-angle-result" id="result"></div>
         </div>
     </div>
+
 
     <div class="neckanglerow">
         <div class="neckanglecolumn">
@@ -76,13 +100,13 @@
         
         <p>The solution to this equation is your <strong>neck angle.</strong></p>
 
-        <footer class="footer">
-            <p class="acknowledgment"> Developed by Galloup School</p>
-            <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
-        </footer>
-
         </div>
     </div>
+
+    <footer class="footer">
+        <p class="acknowledgment"> Developed by Galloup School</p>
+        <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
+    </footer>
 
 
     <script src="neckanglescript.js"></script>
