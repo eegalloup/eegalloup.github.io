@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fretboard Taper Calculator</title>
+    <link rel="stylesheet" href="calculatorstyles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/galloupschool.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+        <nav class="directory-overlay">
+            <button class="menu-close" aria-label="Close navigation">
+                ✖
+            </button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="luthiersjournal.html">Journal</a></li>
+                <li><a href="index.html#calculator-section">Calculators</a></li>
+                <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<body>
+    <h1>Fretboard Taper Calculator</h1>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="form-group">
+                <label>Unit: 
+                    <select id="unit">
+                        <option value="metric">Millimeters (mm)</option>
+                        <option value="imperial">Inches (in)</option>
+                    </select>
+                </label>
+            
+                <label>String spread at nut (A): <input type="number" id="a" /></label>
+                <label>String spread at bridge (B): <input type="number" id="b" /></label>
+                <label>Outer strings to edge distance (d): <input type="number" id="d" /></label>
+                <label>Scale length (S): <input type="number" id="s" /></label>
+                <label>Length of fretboard (L): <input type="number" id="l" /></label>
+                <button onclick="calculate()">Calculate Width at End</button>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="acknowledgment">Developed by Galloup School</p>
+        <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
+    </footer>
+    
+    <script src="fretboardtaperscript.js"></script>
+</body>
+</html>
