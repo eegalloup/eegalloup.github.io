@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tone Generator</title>
+    <link rel="stylesheet" href="calculatorstyles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/galloupschool.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+        <nav class="directory-overlay">
+            <button class="menu-close" aria-label="Close navigation">
+                ✖
+            </button>
+            <ul>
+                <li><a href="index.html>Home">Home</a></li>
+                <li><a href="luthiersjournal.html">Journal</a></li>
+                <li><a href="index.html#calculator-section">Calculators</a></li>
+                <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Tone Generator</h1>
+
+    <div class="calculator-container">
+        <div class="calculator">
+            <p>Select a tuning frequency:</p>
+            <select id="tone">
+                <option value="440">A4 (440 Hz)</option>
+                <option value="329.63">E4 (329.63 Hz)</option>
+                <option value="261.63">C4 (261.63 Hz)</option>
+                <option value="196">G3 (196 Hz)</option>
+                <option value="146.83">D3 (146.83 Hz)</option>
+            </select>
+            <br>
+            <p>Or enter a custom frequency:</p>
+            <input type="number" id="customFreq" min="20" max="20000" placeholder="e.g., 432">
+            <br>
+            <button onclick="playTone()">Play</button>
+            <button onclick="stopTone()">Stop</button>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lutherie Journal</title>
+    <link rel="stylesheet" href="journalstyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script defer src="journalscript.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/galloupschool.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+        <nav class="directory-overlay">
+            <button class="menu-close" aria-label="Close navigation">
+                ✖
+            </button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="luthiersjournal.html">Journal</a></li>
+                <li><a href="index.html#calculator-section">Calculators</a></li>
+                <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+<!--First Question-->
+<div class="question-container">
+    <div id="start-screen">
+        <h1>Hello. Welcome to the Luthier's Journal.</h1>
+        <h2>What are you working on today?</h2>
+        <button class="start-journey-button" onclick="startJourney('journey1')">Repair</button>
+        <button class="start-journey-button" onclick="startJourney('journey2')">Build</button>
+    </div>
+</div>
+
+<!--Repair-->
+<div id="journey1">
+
+    <!-- Question 1 with 5 form fields -->
+    <div id="j1q1" class="question active">
+        <h1>Let's get some details:</h1>
+        <input type="text" class="form" id="client" placeholder="Client Name">
+        <input type="text" class="form" id="name" placeholder="Your Name">
+        <input type="text" class="form" id="model" placeholder="Model">
+        <input type="text" class="form" id="serial" placeholder="Serial Number">
+        <input type="text" class="form" id="date" placeholder="Date">
+        <div class="button-container">
+            <button class="journey-button" onclick="prevQuestion('j1q1', 'start-screen')">Back</button>
+            <button class="journey-button" onclick="nextQuestion('j1q1', 'j1q2')">Next</button>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div id="j1q2" class="question">
+        <h1>What did you repair?</h1>
+    
+        <!-- Button Options -->
+        <div class="button-group">
+            <button type="button" class="option-btn" data-value="Fret">Fret</button>
+            <button type="button" class="option-btn" data-value="Neck">Neck</button>
+            <button type="button" class="option-btn" data-value="Bridge">Bridge</button>
+            <button type="button" class="option-btn" data-value="Body">Body</button>
+            <button type="button" class="option-btn" data-value="Electronics">Electronics</button>
+            <button type="button" class="option-btn" data-value="Other" id="other-btn">Other</button>
+        </div>
+    
+        <!-- "Other" Input Field (Hidden by Default) -->
+        <input type="text" id="fret-issue" class="form hidden" placeholder="Describe the fret issue:">
+        <input type="text" id="neck-issue" class="form hidden" placeholder="Describe the neck issue:">
+        <input type="text" id="bridge-issue" class="form hidden" placeholder="Describe the bridge issue:">
+        <input type="text" id="body-issue" class="form hidden" placeholder="Describe the body issue:">
+        <input type="text" id="electronics-issue" class="form hidden" placeholder="Describe the electronics issue:">
+        <input type="text" id="other-issue" class="form hidden" placeholder="Describe the other issue:">
+
+        <div class="button-container">
+            <button class="journey-button" onclick="prevQuestion('j1q2', 'j1q1')">Back</button>
+            <button class="journey-button" onclick="nextQuestion('j1q2', 'j1q3')">Next</button>
+        </div>
+    </div>
+
+    <div id="j1q3" class="question">
+        <h1>What repairs did you perform?</h1>
+    
+        <!-- This div will dynamically populate repair options based on previous selections -->
+        <div id="repair-options" class="button-group"></div>
+    
+        <div class="button-container">
+            <button class="journey-button" onclick="prevQuestion('j1q3', 'j1q2')">Back</button>
+            <button class="journey-button" onclick="nextQuestion('j1q3', 'j1q4')">Next</button>
+        </div>
+    </div>
+
+    <div id="j1q4" class="question">
+        <h1>Repair Quote</h1>
+        
+        <!-- Currency Selection Dropdown -->
+        <label for="currency-select">Select Currency:</label>
+        <select id="currency-select">
+            <option value="USD">$ USD</option>
+            <option value="EUR">€ EUR</option>
+            <option value="GBP">£ GBP</option>
+            <option value="CAD">C$ CAD</option>
+            <option value="AUD">A$ AUD</option>
+            <option value="JPY">¥ JPY</option>
+        </select>
+    
+        <p>Enter estimated costs for the repairs:</p>
+        <div id="quote-container">
+            <!-- Quote fields will be dynamically generated based on selected repairs -->
+        </div>
+    
+        <!-- Additional Costs Section -->
+        <h3>Additional Costs</h3>
+        <div id="additional-costs">
+            <label for="labor-cost">Labor Cost:</label>
+            <input type="number" id="labor-cost" class="quote-input" placeholder="Enter labor cost">
+    
+            <label for="materials-cost">Materials Cost:</label>
+            <input type="number" id="materials-cost" class="quote-input" placeholder="Enter materials cost">
+    
+            <label for="tax-cost">Tax/Fees:</label>
+            <input type="number" id="tax-cost" class="quote-input" placeholder="Enter tax/fees">
+        </div>
+    
+        <div class="button-container">
+            <button class="journey-button" onclick="prevQuestion('j1q4', 'j1q3')">Back</button>
+            <button class="journey-button" onclick="nextQuestion('j1q4', 'j1q5')">Next</button>
+        </div>
+    </div>
+    
+    
+    
+
+    <div id="j1q5" class="question">
+        <h1>Final Repair Report</h1>
+        <div id="report-container"></div>
+    
+        <div class="button-container">
+            <button class="journey-button" onclick="downloadPDF()">Download PDF</button>
+            <button class="journey-button" onclick="printReport()">Print</button>
+            <button class="journey-button" onclick="emailPDF()">Email to Client</button>
+        </div>
+    
+        <div class="button-container">
+            <button class="journey-button" onclick="prevQuestion('j1q5', 'j1q4')">Back</button>
+            <button class="journey-button" onclick="submitForm()">Submit & Save</button>
+        </div>
+    </div>
+</div>
+
+
+<!--Build-->
+<div id="journey2" class="hidden">
+    <div id="j2q1">
+        <h2>Journey 2 - Question 1</h2>
+        <input type="text" placeholder="Enter your answer">
+        <button onclick="nextQuestion('j2q1', 'j2q2')">Next</button>
+    </div>
+    <div id="j2q2" class="hidden">
+        <h2>Journey 2 - Question 2</h2>
+        <input type="text" placeholder="Enter your answer">
+        <button onclick="prevQuestion('j2q2', 'j2q1')">Back</button>
+        <button onclick="submitForm()">Submit</button>
+    </div>
+</div>
+
+
+</body>
+</html>
