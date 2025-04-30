@@ -787,3 +787,17 @@ footer p {
     background-repeat: no-repeat;
     image-rendering: pixelated;
   }
+
+  @media screen and (max-width: 600px) {
+    .tonegen-buttons {
+      grid-template-columns: repeat(2, 1fr); /* 2 buttons per row on small screens */
+      gap: 8px;
+      padding: 0 10px; /* Adds horizontal breathing room */
+    }
+  
+    .tonegen-buttons button {
+      font-size: 0.95rem;
+      padding: 10px 12px;
+    }
+  }
+  
