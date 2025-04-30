@@ -670,3 +670,120 @@ footer p {
     height: auto; /* Preserve the aspect ratio */
     margin-top: 0%;
 }
+
+/* Tone Generator Specific */
+.tonegen-main {
+    padding-top: 20px; /* Push content below header */
+  }
+  
+  .tonegen-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .tonegen-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tonegen-buttons {
+    display: flex;
+    flex-direction: row; /* Force row layout */
+    flex-wrap: wrap; /* Allow wrap if small screen */
+    justify-content: center; /* Center them */
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 20px;
+  }
+  
+  .tonegen-buttons button {
+    flex: 0 0 auto; /* Shrink to fit button size */
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #a12d27;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap; /* Prevent wrapping inside buttons */
+  }
+  
+  .tonegen-buttons button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  
+  .tonegen-section {
+    margin-top: 20px;
+  }
+  /* Tone Generator Specific */
+  
+  .tonegen-title {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: transparent;
+  }
+  
+  .tonegen-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tonegen-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Force 5 buttons per row */
+    gap: 5px;
+    margin-bottom: 20px;
+    justify-items: center;
+  }
+  
+  .tonegen-buttons button {
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    background-color: #a12d27;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .tonegen-buttons button:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .tonegen-buttons button:active {
+    background-color: #a0d4ff;
+    transform: scale(0.98);
+  }
+  
+  .tonegen-section {
+    margin-top: 20px;
+  }
+  
+  .tonegen-active {
+    background-color: #007bff !important;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  }
+  
+  .tonegen-body.bars-and-tone {
+    background-image: url('images/barsandtone.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+  }

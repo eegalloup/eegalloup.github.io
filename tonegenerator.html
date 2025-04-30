@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tone Generator</title>
+  <link rel="stylesheet" href="calculatorstyles.css" />
+</head>
+<body class="tonegen-body">
+  <header class="site-header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/galloupschool.png" alt="Logo" class="logo" />
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="directory-overlay">
+      <button class="menu-close" aria-label="Close navigation">✖</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="luthiersjournal.html">Journal</a></li>
+        <li><a href="index.html#calculator-section">Calculators</a></li>
+        <li><a href="https://www.patreon.com/c/TheGalloupSchool" target="_blank">Patreon</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="tonegen-main">
+    <h1 class="tonegen-title">Tone Generator</h1>
+
+    <div class="tonegen-container">
+      <div class="tonegen-buttons">
+        <button onclick="setPresetFrequency(440)"><strong>A4</strong><br>440 Hz</button>
+        <button onclick="setPresetFrequency(329.63)"><strong>E4</strong><br>329.63 Hz</button>
+        <button onclick="setPresetFrequency(261.63)"><strong>C4</strong><br>261.63 Hz</button>
+        <button onclick="setPresetFrequency(196)"><strong>G3</strong><br>196 Hz</button>
+        <button onclick="setPresetFrequency(146.83)"><strong>D3</strong><br>146.83 Hz</button>
+      </div>
+
+      <div class="tonegen-section">
+        <p>Waveform:</p>
+        <select id="tonegen-waveformSelect">
+          <option value="sine">Sine</option>
+          <option value="square">Square</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle">Triangle</option>
+        </select>
+      </div>
+
+      <div class="tonegen-section">
+        <p>Custom Frequency Slider:</p>
+        <input type="range" id="tonegen-customFreqSlider" min="20" max="6000" step="1" value="440" oninput="liveUpdateTone()" />
+        <span id="tonegen-customFreqLabel">440 Hz</span>
+      </div>
+
+      <div class="tonegen-section">
+        <p>Or type your own frequency:</p>
+        <input type="number" id="tonegen-customFreqInput" min="20" max="6000" placeholder="e.g., 432" oninput="syncSliderToInput()" />
+      </div>
+
+      <div class="tonegen-section">
+        <button onclick="playTone()">Play</button>
+        <button onclick="stopTone()">Stop</button>
+      </div>
+
+      <div class="tonegen-section">
+        <p>Volume:</p>
+        <input type="range" id="tonegen-volumeSlider" min="0" max="1" step="0.01" value="0.5" oninput="updateVolume()" />
+      </div>
+
+      <div class="tonegen-section">
+        <p>Pan:</p>
+        <input type="range" id="tonegen-panSlider" min="-1" max="1" step="0.01" value="0" oninput="updatePan()" />
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p class="acknowledgment">Developed by Galloup School</p>
+    <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
+</footer>
+
+
+  <script src="tonegenerator.js"></script>
+</body>
+</html>
