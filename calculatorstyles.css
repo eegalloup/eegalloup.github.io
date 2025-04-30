@@ -700,17 +700,6 @@ footer p {
     margin-bottom: 20px;
   }
   
-  .tonegen-buttons button {
-    flex: 0 0 auto; /* Shrink to fit button size */
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    background-color: #a12d27;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    white-space: nowrap; /* Prevent wrapping inside buttons */
-  }
-  
   .tonegen-buttons button:hover {
     background-color: #e0e0e0;
   }
@@ -719,7 +708,6 @@ footer p {
   .tonegen-section {
     margin-top: 20px;
   }
-  /* Tone Generator Specific */
   
   .tonegen-title {
     text-align: center;
@@ -737,7 +725,23 @@ footer p {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .tonegen-buttons {
+  .tonegen-buttons-guitar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Force 5 buttons per row */
+    gap: 5px;
+    margin-bottom: 20px;
+    justify-items: center;
+  }
+
+  .tonegen-buttons-bass {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Force 5 buttons per row */
+    gap: 5px;
+    margin-bottom: 20px;
+    justify-items: center;
+  }
+
+  .tonegen-buttons-presets {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Force 5 buttons per row */
     gap: 5px;
@@ -745,7 +749,33 @@ footer p {
     justify-items: center;
   }
   
-  .tonegen-buttons button {
+  .tonegen-buttons-guitar button {
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    background-color: #a12d27;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tonegen-buttons-bass button {
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    background-color: #a12d27;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tonegen-buttons-presets button {
     padding: 12px 16px;
     font-size: 1rem;
     font-weight: 500;
@@ -787,6 +817,7 @@ footer p {
     background-repeat: no-repeat;
     image-rendering: pixelated;
   }
+  
 
   @media screen and (max-width: 600px) {
     .tonegen-buttons {

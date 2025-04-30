@@ -105,8 +105,11 @@ function setPresetFrequency(frequency) {
   liveUpdateTone();
 
   // Highlight active button
-  const buttons = document.querySelectorAll('.tonegen-buttons button');
+  const buttons = document.querySelectorAll(
+    '.tonegen-buttons-guitar button, .tonegen-buttons-bass button, .tonegen-buttons-presets button'
+  );
   buttons.forEach(btn => btn.classList.remove('tonegen-active'));
+  
 
   const match = Array.from(buttons).find(b => b.textContent.includes(`${frequency}`));
   if (match) match.classList.add('tonegen-active');
