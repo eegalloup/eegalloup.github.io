@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logging In...</title>
+</head>
+<body>
+  <p>Logging you in...</p>
+
+  <script>
+    const hash = window.location.hash.substr(1);
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get('access_token');
+
+    if (accessToken) {
+      localStorage.setItem('patreon_token', accessToken);
+      window.location.href = '/index.html';
+    } else {
+      document.body.innerHTML = '<p>Login failed or was cancelled.</p>';
+    }
+  </script>
+</body>
+</html>
