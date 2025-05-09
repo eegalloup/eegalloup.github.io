@@ -10,17 +10,21 @@
     const hash = window.location.hash.substr(1);
     const params = new URLSearchParams(hash);
     const token = params.get('access_token');
-
+  
     if (token) {
       localStorage.setItem('patreon_token', token);
+  
+      document.body.innerHTML = `
+        <p>✅ Token saved to localStorage!</p>
+        <p><strong>Stored Token:</strong></p>
+        <code style="word-break: break-all;">${localStorage.getItem('patreon_token')}</code>
+        <p style="margin-top:20px;">You can now manually <a href="/index.html">click here</a> to return to the homepage.</p>
+      `;
+  
       console.log('✅ Token saved:', token);
-      setTimeout(() => {
-        console.log('🧪 Test after delay:', localStorage.getItem('patreon_token'));
-        window.location.href = '/index.html';
-      }, 3000);
     } else {
-      document.body.innerHTML = '<p>Login failed.</p>';
+      document.body.innerHTML = '<p>❌ Login failed. No token found.</p>';
     }
-  </script>
+  </script>  
 </body>
 </html>
