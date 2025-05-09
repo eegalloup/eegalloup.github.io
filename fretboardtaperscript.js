@@ -1,3 +1,14 @@
+// Block access to this page if user is not logged in
+(function () {
+    const token = localStorage.getItem('patreon_token');
+  
+    if (!token) {
+      // Redirect to homepage or custom "please log in" page
+        sessionStorage.setItem('login_required', 'true');
+        window.location.href = '/index.html';
+    }
+  })();
+  
 function calculate() {
     const A = parseFloat(document.getElementById('a').value);
     const B = parseFloat(document.getElementById('b').value);
