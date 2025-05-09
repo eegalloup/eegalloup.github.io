@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Logging In...</title>
+  <meta charset="UTF-8" />
+  <title>Logging in...</title>
 </head>
 <body>
-  <p>Logging you in...</p>
-
+  <p>Saving token…</p>
   <script>
     const hash = window.location.hash.substr(1);
     const params = new URLSearchParams(hash);
     const token = params.get('access_token');
-  
+
     if (token) {
       localStorage.setItem('patreon_token', token);
-      document.body.innerHTML = `
-        <p style="font-family:monospace">✅ Token saved!</p>
-        <p><strong>Access token:</strong></p>
-        <code>${token}</code>
-        <p>Redirecting in 3 seconds…</p>
-      `;
+      console.log('✅ Token saved:', token);
       setTimeout(() => {
+        console.log('🧪 Test after delay:', localStorage.getItem('patreon_token'));
         window.location.href = '/index.html';
       }, 3000);
     } else {
-      document.body.innerHTML = '<p>❌ Login failed. No access token found.</p>';
+      document.body.innerHTML = '<p>Login failed.</p>';
     }
   </script>
 </body>
