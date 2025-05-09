@@ -7,15 +7,20 @@
   <p>Logging you in...</p>
 
   <script>
+    // Get access token from URL hash
     const hash = window.location.hash.substr(1);
     const params = new URLSearchParams(hash);
-    const accessToken = params.get('access_token');
-
-    if (accessToken) {
-      localStorage.setItem('patreon_token', accessToken);
+    const token = params.get('access_token');
+  
+    if (token) {
+      // Save the token
+      localStorage.setItem('patreon_token', token);
+  
+      // Redirect to homepage (or wherever you want)
       window.location.href = '/index.html';
     } else {
-      document.body.innerHTML = '<p>Login failed or was cancelled.</p>';
+      // Optional: handle failure
+      document.body.innerHTML = '<p>Login failed. Please try again.</p>';
     }
   </script>
 </body>
