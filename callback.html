@@ -7,20 +7,23 @@
   <p>Logging you in...</p>
 
   <script>
-    // Get access token from URL hash
     const hash = window.location.hash.substr(1);
     const params = new URLSearchParams(hash);
     const token = params.get('access_token');
   
     if (token) {
-      // Save the token
       localStorage.setItem('patreon_token', token);
-  
-      // Redirect to homepage (or wherever you want)
-      window.location.href = '/index.html';
+      document.body.innerHTML = `
+        <p style="font-family:monospace">✅ Token saved!</p>
+        <p><strong>Access token:</strong></p>
+        <code>${token}</code>
+        <p>Redirecting in 3 seconds…</p>
+      `;
+      setTimeout(() => {
+        window.location.href = '/index.html';
+      }, 3000);
     } else {
-      // Optional: handle failure
-      document.body.innerHTML = '<p>Login failed. Please try again.</p>';
+      document.body.innerHTML = '<p>❌ Login failed. No access token found.</p>';
     }
   </script>
 </body>
