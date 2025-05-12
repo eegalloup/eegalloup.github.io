@@ -26,7 +26,7 @@ async function initAuth() {
       const token = await auth0.getTokenSilently();
       console.log("🔑 Token acquired:", token);
       localStorage.setItem("patreon_token", token);
-      loadUserProfile();
+      loadPlaceholderProfile();
     } else {
       const loginButton = document.getElementById("login-button");
       if (loginButton) {
@@ -46,34 +46,16 @@ async function initAuth() {
   }
 }
 
-async function loadUserProfile() {
-  const token = localStorage.getItem("patreon_token");
-  if (!token) return;
+function loadPlaceholderProfile() {
+  const loginArea = document.getElementById("login-area");
+  if (!loginArea) return;
 
-  try {
-    const res = await fetch("/.netlify/functions/patreon-profile", {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    const data = await res.json();
-
-    if (!data || !data.data || !data.data.attributes) {
-      throw new Error("Missing expected profile data structure");
-    }
-
-    const loginArea = document.getElementById("login-area");
-    const { full_name, image_url } = data.data.attributes;
-
-    loginArea.innerHTML = `
-      <div class="profile-wrapper">
-        <img src="${image_url || 'default-profile.png'}" alt="${full_name || 'User'}" class="profile-pic" title="${full_name || 'User'}" />
-        <div class="logout-menu" onclick="logout()">Log out</div>
-      </div>`;
-  } catch (err) {
-    console.error("🚨 Failed to load Patreon profile:", err);
-    localStorage.removeItem("patreon_token");
-  }
+  loginArea.innerHTML = `
+    <div class="profile-wrapper">
+      <img src="default-profile.png" alt="User" class="profile-pic" title="Logged in" />
+      <div class="logout-menu" onclick="logout()">Log out</div>
+    </div>`;
 }
-
 
 function logout() {
   localStorage.removeItem("patreon_token");
