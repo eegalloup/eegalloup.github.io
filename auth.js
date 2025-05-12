@@ -3,33 +3,42 @@
 let auth0 = null;
 
 async function initAuth() {
-  auth0 = await createAuth0Client({
-    domain: "dev-agd6batxjqwwngzp.us.auth0.com",
-    client_id: "mQNsWOq2ShrI309xhlFfkSaWbn32wiho",
-    audience: "https://www.patreon.com/api/oauth2/v2/identity",
-    useRefreshTokens: true,
-    cacheLocation: "localstorage",
-    redirect_uri: window.location.origin
-  });
+  try {
+    auth0 = await createAuth0Client({
+      domain: "dev-agd6batxjqwwngzp.us.auth0.com",
+      client_id: "mQNsWOq2ShrI309xhlFfkSaWbn32wiho",
+      audience: "https://www.patreon.com/api/oauth2/v2/identity",
+      useRefreshTokens: true,
+      cacheLocation: "localstorage",
+      redirect_uri: window.location.origin
+    });
 
-  if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-    await auth0.handleRedirectCallback();
-    window.history.replaceState({}, document.title, "/");
-  }
-
-  const isAuthenticated = await auth0.isAuthenticated();
-  if (isAuthenticated) {
-    const token = await auth0.getTokenSilently();
-    localStorage.setItem("patreon_token", token);
-    loadUserProfile();
-  } else {
-    const loginButton = document.getElementById("login-button");
-    if (loginButton) {
-      loginButton.addEventListener("click", async (e) => {
-        e.preventDefault();
-        await auth0.loginWithRedirect();
-      });
+    if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+      console.log("🔁 Handling redirect callback...");
+      await auth0.handleRedirectCallback();
+      window.history.replaceState({}, document.title, "/");
     }
+
+    const isAuthenticated = await auth0.isAuthenticated();
+    console.log("🔒 Authenticated:", isAuthenticated);
+
+    if (isAuthenticated) {
+      const token = await auth0.getTokenSilently();
+      console.log("🔑 Token acquired:", token);
+      localStorage.setItem("patreon_token", token);
+      loadUserProfile();
+    } else {
+      const loginButton = document.getElementById("login-button");
+      if (loginButton) {
+        loginButton.addEventListener("click", async (e) => {
+          e.preventDefault();
+          console.log("🚪 Redirecting to login...");
+          await auth0.loginWithRedirect();
+        });
+      }
+    }
+  } catch (err) {
+    console.error("❌ Auth0 init error:", err);
   }
 }
 
@@ -53,7 +62,7 @@ async function loadUserProfile() {
         <div class="logout-menu" onclick="logout()">Log out</div>
       </div>`;
   } catch (err) {
-    console.error("Failed to fetch Patreon profile:", err);
+    console.error("🚨 Failed to load Patreon profile:", err);
     localStorage.removeItem("patreon_token");
   }
 }
