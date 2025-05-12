@@ -1,13 +1,5 @@
 // auth.js
 
-// REMOVE audience for test only:
-auth0 = await createAuth0Client({
-  domain: "dev-...auth0.com",
-  client_id: "...",
-  // audience: "https://www.patreon.com/api/oauth2/v2/identity", ← disable this temporarily
-  ...
-});
-
 let auth0 = null;
 
 async function initAuth() {
@@ -15,7 +7,6 @@ async function initAuth() {
     auth0 = await createAuth0Client({
       domain: "dev-agd6batxjqwwngzp.us.auth0.com",
       client_id: "mQNsWOq2ShrI309xhlFfkSaWbn32wiho",
-      audience: "https://www.patreon.com/api/oauth2/v2/identity",
       useRefreshTokens: true,
       cacheLocation: "localstorage",
       redirect_uri: window.location.origin
