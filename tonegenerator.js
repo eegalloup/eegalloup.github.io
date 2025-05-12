@@ -1,14 +1,3 @@
-// Block access to this page if user is not logged in
-(function () {
-  const token = localStorage.getItem('patreon_token');
-
-  if (!token) {
-    // Redirect to homepage or custom "please log in" page
-      sessionStorage.setItem('login_required', 'true');
-      window.location.href = '/index.html';
-  }
-})();
-
 let audioContext;
 let oscillator;
 let gainNode;
