@@ -7,6 +7,7 @@ async function initAuth() {
     auth0 = await createAuth0Client({
       domain: "dev-agd6batxjqwwngzp.us.auth0.com",
       client_id: "mQNsWOq2ShrI309xhlFfkSaWbn32wiho",
+      audience: "https://www.patreon.com/api/oauth2/v2/identity",
       useRefreshTokens: true,
       cacheLocation: "localstorage",
       redirect_uri: window.location.origin
@@ -52,12 +53,17 @@ async function loadUserProfile() {
       }
     });
     const data = await res.json();
+
+    if (!data || !data.data || !data.data.attributes) {
+      throw new Error("Missing expected profile data structure");
+    }
+
     const loginArea = document.getElementById("login-area");
     const { full_name, image_url } = data.data.attributes;
 
     loginArea.innerHTML = `
       <div class="profile-wrapper">
-        <img src="${image_url}" alt="${full_name}" class="profile-pic" title="${full_name}" />
+        <img src="${image_url || 'default-profile.png'}" alt="${full_name || 'User'}" class="profile-pic" title="${full_name || 'User'}" />
         <div class="logout-menu" onclick="logout()">Log out</div>
       </div>`;
   } catch (err) {
