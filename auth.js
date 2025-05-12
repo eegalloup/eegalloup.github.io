@@ -51,10 +51,8 @@ async function loadUserProfile() {
   if (!token) return;
 
   try {
-    const res = await fetch("https://www.patreon.com/api/oauth2/v2/identity?fields[user]=image_url,full_name", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+    const res = await fetch("/.netlify/functions/patreon-profile", {
+      headers: { Authorization: `Bearer ${token}` }
     });
     const data = await res.json();
 
@@ -75,6 +73,7 @@ async function loadUserProfile() {
     localStorage.removeItem("patreon_token");
   }
 }
+
 
 function logout() {
   localStorage.removeItem("patreon_token");
