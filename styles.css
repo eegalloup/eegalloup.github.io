@@ -812,7 +812,6 @@ footer p {
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%; /* Ensures alignment with nav height */
 }
 
 .profile-pic {
@@ -826,8 +825,9 @@ footer p {
 .logout-menu {
   display: none;
   position: absolute;
-  top: 50px;
+  top: 100%;
   left: 0;
+  margin-top: 4px;
   background-color: white;
   border: 1px solid #ccc;
   padding: 8px 12px;

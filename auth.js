@@ -52,20 +52,28 @@ async function loadUserProfile() {
 
   loginArea.innerHTML = `
     <div class="profile-wrapper">
-      <div class="profile-container">
-        <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" />
-        <div class="logout-menu">Log out</div>
-      </div>
+      <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" />
+      <div class="logout-menu">Log out</div>
     </div>`;
 
-  const wrapper = document.querySelector(".profile-container");
+  const wrapper = document.querySelector(".profile-wrapper");
   const logoutMenu = document.querySelector(".logout-menu");
 
   wrapper.addEventListener("mouseenter", () => {
     logoutMenu.style.display = "block";
   });
 
-  wrapper.addEventListener("mouseleave", () => {
+  wrapper.addEventListener("mouseleave", (e) => {
+    if (!logoutMenu.matches(":hover")) {
+      logoutMenu.style.display = "none";
+    }
+  });
+
+  logoutMenu.addEventListener("mouseenter", () => {
+    logoutMenu.style.display = "block";
+  });
+
+  logoutMenu.addEventListener("mouseleave", () => {
     logoutMenu.style.display = "none";
   });
 
