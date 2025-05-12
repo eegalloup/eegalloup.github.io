@@ -12,10 +12,10 @@
 
   if (token) {
     localStorage.setItem("patreon_token", token);
-    window.location.href = "/index.html";
+    document.body.innerHTML = `<p>✅ Token saved: ${token}</p>`;
   } else {
     document.body.innerHTML = "<p>❌ Login failed. No token found.</p>";
   }
-</script>
+  </script>
 </body>
 </html>
