@@ -51,12 +51,12 @@ async function loadUserProfile() {
   if (!loginArea) return;
 
   loginArea.innerHTML = `
-    <div class="profile-wrapper" style="display: flex; align-items: center;">
-      <div class="profile-pic-container" style="position: relative;">
-        <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" style="vertical-align: middle;" />
+    <li class="profile-wrapper">
+      <div class="profile-pic-container">
+        <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" />
         <div class="logout-menu">Log out</div>
       </div>
-    </div>`;
+    </li>`;
 
   const wrapper = document.querySelector(".profile-wrapper");
   const container = document.querySelector(".profile-pic-container");
@@ -86,4 +86,41 @@ function logout() {
   auth0.logout({ returnTo: window.location.origin });
 }
 
-document.addEventListener("DOMContentLoaded", initAuth);
+function triggerLogin() {
+  if (auth0) {
+    auth0.loginWithRedirect({
+      authorizationParams: {
+        scope: "openid profile email"
+      }
+    });
+  } else {
+    window.location.href = "https://www.luthiertoolbox.com/";
+  }
+}
+
+function dismissPopup() {
+  const popup = document.getElementById("login-popup");
+  if (popup) popup.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await initAuth();
+
+  const gatedPages = [
+    "FeedRate.html",
+    "fretboardtaper.html",
+    "FretCalculator.html",
+    "luthiersjournal.html",
+    "MonopoleMobility.html",
+    "neckangle.html",
+    "tonegenerator.html",
+    "YoungsModulus.html"
+  ];
+
+  const currentPage = window.location.pathname.split("/").pop();
+  if (gatedPages.includes(currentPage)) {
+    const token = localStorage.getItem("patreon_token");
+    const popup = document.getElementById("login-popup");
+    if (!token && popup) popup.style.display = "block";
+  }
+});
