@@ -33,7 +33,11 @@ async function initAuth() {
         loginButton.addEventListener("click", async (e) => {
           e.preventDefault();
           console.log("🚪 Redirecting to login...");
-          await auth0.loginWithRedirect();
+          await auth0.loginWithRedirect({
+            authorizationParams: {
+              scope: "openid profile email identity identity[email] identity.memberships"
+            }
+          });
         });
       }
     }
