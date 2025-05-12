@@ -47,25 +47,14 @@ async function initAuth() {
 }
 
 async function loadUserProfile() {
-  try {
-    const user = await auth0.getUser();
-    if (!user) return;
+  const loginArea = document.getElementById("login-area");
+  if (!loginArea) return;
 
-    const loginArea = document.getElementById("login-area");
-    if (!loginArea) return;
-
-    const name = user.name || "User";
-    const picture = user.picture || "default-profile.png";
-
-    loginArea.innerHTML = `
-      <div class="profile-wrapper">
-        <img src="${picture}" alt="${name}" class="profile-pic" title="${name}" />
-        <div class="logout-menu" onclick="logout()">Log out</div>
-      </div>`;
-  } catch (err) {
-    console.error("🚨 Failed to load user profile:", err);
-    localStorage.removeItem("patreon_token");
-  }
+  loginArea.innerHTML = `
+    <div class="profile-wrapper">
+      <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" />
+      <div class="logout-menu" onclick="logout()">Log out</div>
+    </div>`;
 }
 
 function logout() {
