@@ -6,16 +6,20 @@
 <body>
   <p>Logging in...</p>
   <script>
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    const token = params.get("access_token");
+  const hash = window.location.hash.substring(1);
+  const params = new URLSearchParams(hash);
+  const token = params.get("access_token");
 
-    if (token) {
-      localStorage.setItem("patreon_token", token);
-      window.location.href = "/index.html";
-    } else {
-      document.body.innerHTML = "<p>❌ Login failed. No token found.</p>";
-    }
-  </script>
+  if (token) {
+    localStorage.setItem("patreon_token", token);
+    document.body.innerHTML = `
+      <p>✅ Token saved</p>
+      <code style="word-wrap: break-word">${token}</code>
+      <p><a href="/index.html">Back to homepage</a></p>
+    `;
+  } else {
+    document.body.innerHTML = "<p>❌ No token found in callback</p>";
+  }
+</script>
 </body>
 </html>
