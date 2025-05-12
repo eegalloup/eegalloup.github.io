@@ -38,53 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = 'block';
     sessionStorage.removeItem('login_required');
   }
-
-  // Patreon login status and profile swap
-  console.log('🔍 Checking for token...');
-  const token = localStorage.getItem('patreon_token');
-  console.log('📦 Token:', token);
-
-  if (token) {
-    fetch("https://www.patreon.com/api/oauth2/v2/identity?fields[user]=image_url,full_name", {
-      headers: {
-        "Authorization": "Bearer " + token
-      }
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log('🧑 Patreon profile loaded:', data);
-
-      const imgUrl = data.data.attributes.image_url || 'default-profile.png';
-      const fullName = data.data.attributes.full_name || 'User';
-
-      const loginArea = document.getElementById("login-area");
-      if (loginArea) {
-        loginArea.innerHTML = `
-          <div class="profile-wrapper">
-            <img src="${imgUrl}" alt="${fullName}" class="profile-pic" title="${fullName}" />
-            <div class="logout-menu" onclick="logout()">Log out</div>
-          </div>
-        `;
-        console.log('✅ Swapped login button with profile image');
-      } else {
-        console.log('❌ login-area not found in DOM');
-      }
-    })
-    .catch(err => {
-      console.error('🚨 Error fetching Patreon profile:', err);
-      localStorage.removeItem('patreon_token');
-      window.location.reload();
-    });
-  } else {
-    console.log('⛔ No token found');
-  }
 });
-
-// Global logout function
-function logout() {
-  localStorage.removeItem('patreon_token');
-  window.location.href = '/index.html';
-}
 
 // Popup dismiss function
 function dismissPopup() {
