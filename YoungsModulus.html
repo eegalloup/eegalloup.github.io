@@ -108,12 +108,26 @@
 <div class="spacer-extra-large">
 </div>
 
-    <!-- JavaScript -->
-    <script src="YoungsModulusScript.js"></script>
-</body>
 <footer>
     <p class="acknowledgment">Developed by Galloup School</p>
     <p>&copy; 2024 The Luthier Toolbox | All Rights Reserved</p>
 </footer>
+
+<div id="login-popup" style="display: none;">
+  <div class="popup-overlay" onclick="dismissPopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <button class="popup-close" onclick="dismissPopup()">&times;</button>
+      <img src="images/locked.png" alt="Locked" class="popup-image" />
+      <p class="popup-text">Login to access this content</p>
+      <a class="popup-login-button" href="#" onclick="triggerLogin()">Log in with Patreon</a>
+    </div>
+  </div>
+</div>
+
+    <!-- JavaScript -->
+    <script src="YoungsModulusScript.js"></script>
+    <script src="auth.js"></script>
+    <script src="gate.js"></script>
+
 </body>
 </html>
