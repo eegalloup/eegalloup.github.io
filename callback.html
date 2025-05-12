@@ -12,13 +12,9 @@
 
   if (token) {
     localStorage.setItem("patreon_token", token);
-    document.body.innerHTML = `
-      <p>✅ Token saved</p>
-      <code style="word-wrap: break-word">${token}</code>
-      <p><a href="/index.html">Back to homepage</a></p>
-    `;
+    window.location.href = "/index.html";
   } else {
-    document.body.innerHTML = "<p>❌ No token found in callback</p>";
+    document.body.innerHTML = "<p>❌ Login failed. No token found.</p>";
   }
 </script>
 </body>
