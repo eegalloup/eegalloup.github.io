@@ -82,8 +82,34 @@ if (token) {
   });
 } else {
   console.log('⛔ No token found');
-}
+}const token = localStorage.getItem('patreon_token');
 
+if (token) {
+  fetch("https://www.patreon.com/api/oauth2/v2/identity?fields[user]=image_url,full_name", {
+    headers: {
+      "Authorization": "Bearer " + token
+    }
+  })
+  .then(res => res.json())
+  .then(data => {
+    const imgUrl = data.data.attributes.image_url || 'default-profile.png';
+    const fullName = data.data.attributes.full_name || 'User';
+
+    const loginArea = document.getElementById("login-area");
+    if (loginArea) {
+      loginArea.innerHTML = `
+        <div class="profile-wrapper">
+          <img src="${imgUrl}" alt="${fullName}" class="profile-pic" title="${fullName}" />
+          <div class="logout-menu" onclick="logout()">Log out</div>
+        </div>
+      `;
+    }
+  })
+  .catch(() => {
+    localStorage.removeItem('patreon_token');
+    window.location.reload();
+  });
+}
   });
   
   // Global logout function
