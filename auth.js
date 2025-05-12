@@ -26,7 +26,7 @@ async function initAuth() {
       const token = await auth0.getTokenSilently();
       console.log("🔑 Token acquired:", token);
       localStorage.setItem("patreon_token", token);
-      loadPlaceholderProfile();
+      loadUserProfile();
     } else {
       const loginButton = document.getElementById("login-button");
       if (loginButton) {
@@ -35,7 +35,7 @@ async function initAuth() {
           console.log("🚪 Redirecting to login...");
           await auth0.loginWithRedirect({
             authorizationParams: {
-              scope: "openid profile email identity identity[email] identity.memberships"
+              scope: "openid profile email"
             }
           });
         });
@@ -46,15 +46,26 @@ async function initAuth() {
   }
 }
 
-function loadPlaceholderProfile() {
-  const loginArea = document.getElementById("login-area");
-  if (!loginArea) return;
+async function loadUserProfile() {
+  try {
+    const user = await auth0.getUser();
+    if (!user) return;
 
-  loginArea.innerHTML = `
-    <div class="profile-wrapper">
-      <img src="default-profile.png" alt="User" class="profile-pic" title="Logged in" />
-      <div class="logout-menu" onclick="logout()">Log out</div>
-    </div>`;
+    const loginArea = document.getElementById("login-area");
+    if (!loginArea) return;
+
+    const name = user.name || "User";
+    const picture = user.picture || "default-profile.png";
+
+    loginArea.innerHTML = `
+      <div class="profile-wrapper">
+        <img src="${picture}" alt="${name}" class="profile-pic" title="${name}" />
+        <div class="logout-menu" onclick="logout()">Log out</div>
+      </div>`;
+  } catch (err) {
+    console.error("🚨 Failed to load user profile:", err);
+    localStorage.removeItem("patreon_token");
+  }
 }
 
 function logout() {
