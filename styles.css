@@ -832,6 +832,19 @@ footer p {
   cursor: pointer;
 }
 
+#logoutLink {
+  display: block;
+  color: #333333;
+  text-decoration: none;
+  padding: 0.5em 0;
+}
+
+#logoutLink:hover {
+  color: #ffffff;
+  background-color: #0073e6;
+  border-radius: 4px;
+}
+
 .dropdown-menu {
   display: none;
   position: absolute;
