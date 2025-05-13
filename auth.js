@@ -50,16 +50,38 @@ async function loadUserProfile() {
   const loginArea = document.getElementById("login-area");
   if (!loginArea) return;
 
+  const user = await auth0.getUser();
+
   loginArea.innerHTML = `
     <li class="profile-wrapper">
-      <div class="profile-pic-container">
+      <div class="profile-pic-container" id="profileToggle">
         <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" />
-        <div class="logout-menu">Log out</div>
+      </div>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <span class="dropdown-name">${user.name}</span>
+        <a href="#" id="logoutLink">Log out</a>
       </div>
     </li>`;
 
-  const logoutMenu = document.querySelector(".logout-menu");
-  logoutMenu.addEventListener("click", logout);
+  const profileToggle = document.getElementById("profileToggle");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const logoutLink = document.getElementById("logoutLink");
+
+  profileToggle.addEventListener("click", () => {
+    const isVisible = dropdownMenu.style.display === "block";
+    dropdownMenu.style.display = isVisible ? "none" : "block";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!profileToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.style.display = "none";
+    }
+  });
+
+  logoutLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    logout();
+  });
 }
 
 function logout() {
