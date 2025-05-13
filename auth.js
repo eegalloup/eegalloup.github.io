@@ -122,16 +122,40 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const currentPage = window.location.pathname.split("/").pop();
   const token = localStorage.getItem("patreon_token");
-  const popup = document.getElementById("login-popup");
-  const content = document.getElementById("protected-content");
 
   if (gatedPages.includes(currentPage)) {
     if (!token) {
-      if (popup) popup.style.display = "block";
-    } else {
-      if (content) content.style.display = "block";
+      const overlay = document.createElement("div");
+      overlay.style.position = "fixed";
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = "100%";
+      overlay.style.height = "100%";
+      overlay.style.background = "rgba(0, 0, 0, 0.8)";
+      overlay.style.display = "flex";
+      overlay.style.justifyContent = "center";
+      overlay.style.alignItems = "center";
+      overlay.style.zIndex = 9999;
+
+      const messageBox = document.createElement("div");
+      messageBox.style.background = "white";
+      messageBox.style.padding = "2rem";
+      messageBox.style.textAlign = "center";
+      messageBox.style.borderRadius = "8px";
+      messageBox.style.maxWidth = "400px";
+
+      messageBox.innerHTML = `
+        <h2>🔒 Members Only</h2>
+        <p>You must be logged in to access this page.</p>
+        <p>Redirecting to home...</p>
+      `;
+
+      overlay.appendChild(messageBox);
+      document.body.appendChild(overlay);
+
+      setTimeout(() => {
+        window.location.href = "/index.html";
+      }, 3000);
     }
-  } else {
-    if (content) content.style.display = "block";
   }
 });
