@@ -14,17 +14,13 @@ async function initAuth() {
     });
 
     if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-      console.log("🔁 Handling redirect callback...");
       await auth0.handleRedirectCallback();
       window.history.replaceState({}, document.title, "/");
     }
 
     const isAuthenticated = await auth0.isAuthenticated();
-    console.log("🔒 Authenticated:", isAuthenticated);
-
     if (isAuthenticated) {
       const token = await auth0.getTokenSilently();
-      console.log("🔑 Token acquired:", token);
       localStorage.setItem("patreon_token", token);
       loadUserProfile();
     } else {
@@ -32,7 +28,6 @@ async function initAuth() {
       if (loginButton) {
         loginButton.addEventListener("click", async (e) => {
           e.preventDefault();
-          console.log("🚪 Redirecting to login...");
           await auth0.loginWithRedirect({
             authorizationParams: {
               scope: "openid profile email"
@@ -42,23 +37,22 @@ async function initAuth() {
       }
     }
   } catch (err) {
-    console.error("❌ Auth0 init error:", err);
+    console.error("Auth0 init error:", err);
   }
 }
 
 async function loadUserProfile() {
   const loginArea = document.getElementById("login-area");
   if (!loginArea) return;
-
   const user = await auth0.getUser();
-
+  const displayName = user.nickname || user.name || user.email;
   loginArea.innerHTML = `
     <li class="profile-wrapper">
       <div class="profile-pic-container" id="profileToggle">
         <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" />
       </div>
       <div class="dropdown-menu" id="dropdownMenu">
-        <span class="dropdown-name">${user.name}</span>
+        <span class="dropdown-name">${displayName}</span>
         <a href="#" id="logoutLink">Log out</a>
       </div>
     </li>`;
@@ -99,11 +93,6 @@ function triggerLogin() {
   } else {
     window.location.href = "https://www.luthiertoolbox.com/";
   }
-}
-
-function dismissPopup() {
-  const popup = document.getElementById("login-popup");
-  if (popup) popup.style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
