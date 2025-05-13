@@ -125,6 +125,63 @@ body {
     color: #a12d27;
 }
 
+/* ======================================
+   Profile Pic
+====================================== */
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  list-style: none;
+}
+
+.profile-pic-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#logoutLink {
+  display: block;
+  color: #000000 !important;
+  text-decoration: none;
+  padding: 0.5em 0;
+  background-color: transparent !important;
+  text-align: center;
+}
+
+#logoutLink:hover {
+  color: #ffffff !important;
+  background-color: #a12d27 !important;
+  border-radius: 4px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 0.5em 1em;
+  z-index: 1000;
+}
+.dropdown-name {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
 /* Mobile Styling */
 .menu-toggle {
     display: none; /* Hidden on desktop */
