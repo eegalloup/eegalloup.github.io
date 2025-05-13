@@ -322,7 +322,7 @@ body {
     text-align: left;
     position: relative;
     padding-left: 10%;
-    padding-top: 10%;
+    padding-top: 18%;
 }
 
 /* ======================================
@@ -685,7 +685,7 @@ body {
         text-align: left;
         padding-left: 5%;
         padding-right: 5%;
-        padding-top: 40%;
+        padding-top: 60%;
         justify-content: center;
     }
     .subtitle {
