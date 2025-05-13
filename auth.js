@@ -30,7 +30,7 @@ async function initAuth() {
           e.preventDefault();
           await auth0.loginWithRedirect({
             authorizationParams: {
-              scope: "openid profile email"
+              scope: "openid profile email identity identity[email] identity[first_name] identity[last_name] identity.full_name identity.picture"
             }
           });
         });
@@ -45,11 +45,12 @@ async function loadUserProfile() {
   const loginArea = document.getElementById("login-area");
   if (!loginArea) return;
   const user = await auth0.getUser();
-  const displayName = user.nickname || user.name || user.email;
+  const displayName = user.name || user.nickname || user.email;
+  const profilePic = user.picture || "images/profile-pic.jpg";
   loginArea.innerHTML = `
     <li class="profile-wrapper">
       <div class="profile-pic-container" id="profileToggle">
-        <img src="images/profile-pic.jpg" alt="Profile" class="profile-pic" title="Logged In" />
+        <img src="${profilePic}" alt="Profile" class="profile-pic" title="Logged In" />
       </div>
       <div class="dropdown-menu" id="dropdownMenu">
         <span class="dropdown-name">${displayName}</span>
@@ -87,7 +88,7 @@ function triggerLogin() {
   if (auth0) {
     auth0.loginWithRedirect({
       authorizationParams: {
-        scope: "openid profile email"
+        scope: "openid profile email identity identity[email] identity[first_name] identity[last_name] identity.full_name identity.picture"
       }
     });
   } else {
