@@ -834,14 +834,15 @@ footer p {
 
 #logoutLink {
   display: block;
-  color: #333333;
+  color: #000000 !important;
   text-decoration: none;
   padding: 0.5em 0;
+  background-color: transparent !important;
 }
 
 #logoutLink:hover {
-  color: #ffffff;
-  background-color: #0073e6;
+  color: #ffffff !important;
+  background-color: #a12d27 !important;
   border-radius: 4px;
 }
 
