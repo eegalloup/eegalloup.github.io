@@ -58,26 +58,7 @@ async function loadUserProfile() {
       </div>
     </li>`;
 
-  const wrapper = document.querySelector(".profile-wrapper");
-  const container = document.querySelector(".profile-pic-container");
   const logoutMenu = document.querySelector(".logout-menu");
-
-  wrapper.addEventListener("mouseenter", () => {
-    logoutMenu.style.display = "block";
-  });
-
-  wrapper.addEventListener("mouseleave", () => {
-    logoutMenu.style.display = "none";
-  });
-
-  logoutMenu.addEventListener("mouseenter", () => {
-    logoutMenu.style.display = "block";
-  });
-
-  logoutMenu.addEventListener("mouseleave", () => {
-    logoutMenu.style.display = "none";
-  });
-
   logoutMenu.addEventListener("click", logout);
 }
 
