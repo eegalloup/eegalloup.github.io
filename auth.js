@@ -121,9 +121,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   ];
 
   const currentPage = window.location.pathname.split("/").pop();
+  const token = localStorage.getItem("patreon_token");
+  const popup = document.getElementById("login-popup");
+  const content = document.getElementById("protected-content");
+
   if (gatedPages.includes(currentPage)) {
-    const token = localStorage.getItem("patreon_token");
-    const popup = document.getElementById("login-popup");
-    if (!token && popup) popup.style.display = "block";
+    if (!token) {
+      if (popup) popup.style.display = "block";
+    } else {
+      if (content) content.style.display = "block";
+    }
+  } else {
+    if (content) content.style.display = "block";
   }
 });
