@@ -45,7 +45,7 @@ async function loadUserProfile() {
   const loginArea = document.getElementById("login-area");
   if (!loginArea) return;
   const user = await auth0.getUser();
-  const displayName = user.name || user.nickname || user.email;
+  const displayName = user["identity.full_name"] || user.name || user.nickname || user.email;
   const profilePic = user.picture || "images/profile-pic.jpg";
   loginArea.innerHTML = `
     <li class="profile-wrapper">
